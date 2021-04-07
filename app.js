@@ -1,4 +1,5 @@
 import './assets/style/main.css'
+import "tailwindcss/tailwind.css"
 import data from './assets/data/FishEyeDataFR.json'
 
 // import the router
