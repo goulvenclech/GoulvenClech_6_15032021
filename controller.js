@@ -9,22 +9,20 @@ export class router{
         // Query all internals links
         this.internalLinks = [];
     }
-    push(id) {
+    push(url) {
         // Load content for this tab/page
-        this.print(id);
+        this.print(url);
         // Finally push state change to the address bar
-        window.history.pushState({id}, `${id}`, `${id}`);
+        window.history.pushState({url}, `${url}`, `${url}`);
     }
-    print(id) {
-        console.log("Valeur envoyée" + id)
-        const array = ['/user1','/user2','/user3'];
+    print(url) {
         document.body.innerHTML = '';
-        if (id == '/') {
+        if (url == '/') {
             document.title = "Bienvenue";
             document.body.insertAdjacentHTML('afterbegin', '<index-page />')
-        } else if(array.includes(id)) {
-            document.title = id;
-            document.body.insertAdjacentHTML('afterbegin', '<user-card user="' + id + '"></user-card>')
+        } else if(url.startsWith("/user")) {
+            document.title = url;
+            document.body.insertAdjacentHTML('afterbegin', '<user-card user="' + url + '"></user-card>')
 
         } else {
             document.title = "Erreur 404";
