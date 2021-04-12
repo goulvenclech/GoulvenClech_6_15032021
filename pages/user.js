@@ -9,7 +9,13 @@ export class Usercard extends HTMLElement {
         const template = document.createElement('template');
         template.innerHTML = `
             <nav-bar></nav-bar>
-            <main id = "content">Profil de : <span></span></main>
+            <main id = "content">
+                Profil de : <span></span><br>
+                <like-btn></like-btn><br>
+                <like-btn></like-btn><br>
+                <like-btn></like-btn>
+                <like-ctr></like-ctr>
+            </main>
         `;
         this.appendChild(template.content);
         this.render();
