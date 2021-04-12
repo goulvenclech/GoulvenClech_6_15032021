@@ -3,8 +3,8 @@ export class router{
         // Popstate make the browser back and forward buttons work
         this.popstate = window.addEventListener("popstate", event => {
             // Grab the history state id
-            let stateId = event.state.id;
-            this.print(stateId);
+            let stateUrl = event.state.url;
+            this.print(stateUrl);
         });
         // Query all internals links
         this.internalLinks = [];
