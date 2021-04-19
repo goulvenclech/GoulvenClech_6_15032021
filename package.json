@@ -10,7 +10,11 @@
     "@tailwindcss/jit": "^0.1.18",
     "autoprefixer": "^10.2.5",
     "postcss": "^8.2.9",
+    "postcss-nested": "^5.0.5",
     "tailwindcss": "^2.1.1",
     "vite": "^2.1.0"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^4.2.2"
   }
 }

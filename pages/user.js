@@ -8,7 +8,6 @@ export class Usercard extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-            <nav-bar></nav-bar>
             <main id = "content">Profil de : <span></span></main>
         `;
         this.appendChild(template.content);

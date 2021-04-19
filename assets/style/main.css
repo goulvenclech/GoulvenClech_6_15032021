@@ -1,24 +1,37 @@
-* { /* global font */
-    font-family: Verdana;
-    font-size: 18px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ *  Applies the basic styles defined by the Figma document
+ *  Do not put component styles here
+*/
+@layer base {
+    body {
+        @apply p-6;
+    }
+
+    h2, h3, p {
+        @apply my-4;
+    }
+
+    h2 {
+        @apply text-secondary text-6xl;
+    }
+
+    h3 {
+        @apply text-font-2 text-2xl;
+    }
+
+    p {
+        @apply text-font text-lg;
+    }
+
+    button {
+        @apply bg-primary rounded-md py-4 px-6 font-semibold text-base text-white opacity-100;
+
+        &:hover {
+            @apply bg-secondary opacity-100;
+        }
+    }
 }
-#root { display: flex; flex-direction: row; }
-#content {
-    border: 2px solid #555;
-    margin: 16px;
-    padding: 16px;
-}
-.route {
-    cursor: pointer;
-    justify-content: center;
-    width: 150px;
-    height: 50px;
-    /* vertically centered text */
-    line-height: 50px;
-    position: relative;
-    border: 2px solid #555;
-    background: white;
-    text-align: center;
-    margin: 16px;
-}
-.route.selected { background: yellow; }

@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 export class router{
     constructor() {
         // Popstate make the browser back and forward buttons work

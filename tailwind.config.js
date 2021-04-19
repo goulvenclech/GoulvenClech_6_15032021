@@ -6,7 +6,17 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    fontFamily: {
+      'sans': ['dm-sans','ui-sans-serif', 'verdana', 'system-ui'],
+    },
+    extend: {
+      colors: {
+        'primary' : '#901C1C',
+        'secondary' : '#D3573C',
+        'font' : '#525252',
+        'font-2' : '#901C1C'
+      },
+    },
   },
   variants: {
     extend: {},
