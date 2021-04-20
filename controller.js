@@ -41,7 +41,7 @@ export class router{
             document.body.insertAdjacentHTML('afterbegin', '<index-page />')
         } else if(url.startsWith("/user")) {
             document.title = url;
-            document.body.insertAdjacentHTML('afterbegin', '<user-card user="' + url + '"></user-card>')
+            document.body.insertAdjacentHTML('afterbegin', '<user-page user="' + url + '"></photographer-card>')
 
         } else {
             document.title = "Erreur 404";

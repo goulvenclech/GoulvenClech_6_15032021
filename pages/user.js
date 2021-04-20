@@ -1,4 +1,4 @@
-export class Usercard extends HTMLElement {
+export class UserPage extends HTMLElement {
     constructor() {
         super();
         // take information

@@ -7,7 +7,7 @@ export class ProfilePicture extends HTMLElement {
         const template = document.createElement('template');
         template.innerHTML = `
             <img 
-                src="../assets/images/Photographers ID Photos/TracyGalindo.jpg"
+                src="../assets/images/portraits/TracyGalindo.jpg"
                 alt="Photo de profil de Tracy Galindo"
                 class="h-32 rounded-full shadow-2xl"
                 >

@@ -1,5 +1,15 @@
 # FishEye
 
+FishEye est un site web qui permet aux photographes indépendants de présenter leurs meilleurs travaux. Projet 6 de la formation OpenClassrooms "Développeur Front End".
+
+Pour ce projet, je tente de réaliser une [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application) avec Javascript (vanilla) dans un paradigme [Orientée Prototype](https://en.wikipedia.org/wiki/Prototype-based_programming) ( dont je ne suis pas fan, mais cette formation est l'occasion d'expérimenter et d'apprendre) avec un soin tout particulier apporté à l'accesibilité du produit !
+
+Tout le site est donc une seule page HTML, Javascript gère complétement la navigation de l'utilisateur en chargeant le contenu à mesure de sa navigation. Je m'appuie pour cela énormément sur les [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) qui vont constituer tout les éléments du site, chacun encapsulant à la fois son template CSS, son style Tailwind CSS et sa logique Javascript (les éléments sont dynamique en fonction des requêtes de l'utilisateur mais aussi de la database représentée par un JSON).
+
+Adresse du répo : https://github.com/GoulvenC/GoulvenClech_6_15032021
+
+Démo live : *[Work in progress]*
+
 ## Installation
 
 Le projet FishEye est une projet d'application web entièrement développé en Javascript Vanilla. Nous utilisons l'outil de développement Front End [Vite JS](https://vitejs.dev/) ainsi que le gestionnaire de packet [Yarn](https://yarnpkg.com/); pour le style nous utilisons [PostCSS](https://github.com/postcss/postcss) avec comme plugin [TailwindCSS](https://tailwindcss.com/) ([JIT](https://tailwindcss.com/docs/just-in-time-mode)), [postcss-nested](https://github.com/postcss/postcss-nested) et [autoprefixer](https://github.com/postcss/autoprefixer) ; la police utilisée est [DM Sans](https://fonts.google.com/specimen/DM+Sans).
@@ -39,4 +49,4 @@ Le projet FishEye est une projet d'application web entièrement développé en J
 
 ## Architectures des classes
 ![](/SCHEMA.png)
-Légende
+Légende en cours de rédaction

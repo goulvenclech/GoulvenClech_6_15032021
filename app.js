@@ -5,23 +5,27 @@
 
 // import dependencies
 import "tailwindcss/tailwind.css"
-import data from './assets/data/FishEyeDataFR.json'
 import "@fontsource/dm-sans"
 import "./assets/style/main.css"
+import data from './assets/data/FishEyeDataFR.json'
 
 // import the router
 import {router} from './controller.js'
 // Import all the pages
-import {Usercard} from './pages/user.js'
-window.customElements.define('user-card', Usercard);
-import {Indexpage} from './pages/index.js'
-window.customElements.define('index-page', Indexpage);
+import {UserPage} from './pages/user.js'
+window.customElements.define('user-page', UserPage);
+import {IndexPage} from './pages/index.js'
+window.customElements.define('index-page', IndexPage);
 // Import all the pages/components
 import {Navbar} from './pages/components/navbar.js'
 window.customElements.define('nav-bar', Navbar);
 import {ProfilePicture} from './pages/components/profile-picture.js'
 window.customElements.define('profile-picture', ProfilePicture);
-
+// Import all the pages/components/index components
+import {featuredPhotographers} from './pages/components/index/featured-photographers.js'
+window.customElements.define('featured-photographers', featuredPhotographers);
+import {photographerCard} from './pages/components/index/photographer-card.js'
+window.customElements.define('photographer-card', photographerCard);
 
 // create a new session
 window.onload = function() {

@@ -1,4 +1,7 @@
-export class Indexpage extends HTMLElement {
+/**
+ * Home page of the application
+ */
+export class IndexPage extends HTMLElement {
     constructor() {
         super();
     } 
@@ -7,21 +10,12 @@ export class Indexpage extends HTMLElement {
         const template = document.createElement('template');
         template.innerHTML = `
             <main id="content">
-                <profile-picture></profile-picture>
-                <h2>
-                    Kold Barkley
-                </h2>
-                <h3>Auckland, New Zealand</h3>
-                <p>Photographe et réalisateur <3</p>
-                <button>
-                    Popularité
-                </button>
+                <featured-photographers></featured-photographers>
             </main>
             
         `;
         this.appendChild(template.content);
     }
     
-    render() {
-    }
+    render() {}
 }
