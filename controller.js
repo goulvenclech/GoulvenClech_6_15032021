@@ -37,12 +37,10 @@ export class router{
         document.body.innerHTML = '';
         // WORK IN PROGRESS //
         if (url == '/') {
-            document.title = "Bienvenue";
             document.body.insertAdjacentHTML('afterbegin', '<index-page />')
         } else if(url.startsWith("/user")) {
-            document.title = url;
-            document.body.insertAdjacentHTML('afterbegin', '<user-page user="' + url + '"></photographer-card>')
-
+            var id = url.slice(5);
+            document.body.insertAdjacentHTML('afterbegin', '<user-page user="' + id + '"></photographer-card>')
         } else {
             document.title = "Erreur 404";
             document.body.insertAdjacentHTML('afterbegin', '<p>Erreur 404</p>')

@@ -8,10 +8,10 @@
 */
 @layer base {
     body {
-        @apply p-6;
+        @apply p-12;
     }
 
-    h2, h3, p {
+    h2, h3 {
         @apply my-4;
     }
 

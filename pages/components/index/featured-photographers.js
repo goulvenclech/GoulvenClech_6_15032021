@@ -15,7 +15,7 @@ export class featuredPhotographers extends HTMLElement {
     connectedCallback() {
         const template = document.createElement('template');
         template.innerHTML = `
-            <div class="grid">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9">
             </div>
         `;
         this.appendChild(template.content);

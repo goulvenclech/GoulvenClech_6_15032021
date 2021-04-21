@@ -17,12 +17,15 @@ export class photographerCard extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-            <div class="p-4 m-4">
-                <img class="h-48 w-48 rounded-full object-cover"
-                     src=""></img>
-                <h2 class="text-4xl"></h2>
-            </div>
-            <p class="m-4 text-4xl"></p>
+            <a href=""
+              class="linkToUser block mx-auto">
+                <img class="h-48 w-48 mx-auto rounded-full object-cover"
+                  src="" ></img>
+                <h2 class="text-4xl leading-snug text-center mb-0"></h2>
+            </a>
+            <p class="location text-sm leading-5 text-primary text-center"></p>
+            <p class="tagline text-xs leading-5 text-center"></p>
+            <p class="price text-xs leading-5 text-center"></p>
         `;
         this.appendChild(template.content);
         this.render();
@@ -32,8 +35,12 @@ export class photographerCard extends HTMLElement {
      * Hydrate the template with the the photographer's Data
      */
     render() {
+        this.querySelector(".linkToUser").href = "/user" + this.id;
         this.querySelector("img").src = "../../../assets/images/portraits/" + this.photographerData.portrait;
         this.querySelector("h2").innerHTML = this.photographerData.name;
+        this.querySelector(".location").innerHTML = this.photographerData.city + ", " + this.photographerData.country;
+        this.querySelector(".tagline").innerHTML = this.photographerData.tagline;
+        this.querySelector(".price").innerHTML = this.photographerData.price + "€/jour";
     }
 
     /**
