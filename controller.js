@@ -60,7 +60,7 @@ export class router{
                 // prevent the link for reloading the page
                 event.preventDefault();
                 // push() the href as a request for the router
-                this.push(event.target.getAttribute("href"));
+                this.push(link.getAttribute("href"));
             });
         });
     }

@@ -18,9 +18,9 @@ export class photographerCard extends HTMLElement {
         const template = document.createElement('template');
         template.innerHTML = `
             <a href=""
-              class="linkToUser block mx-auto">
+              class="linkToUser block mx-auto max-w-md z-10">
                 <img class="h-48 w-48 mx-auto rounded-full object-cover"
-                  src="" ></img>
+                  src=""></img>
                 <h2 class="text-4xl leading-snug text-center mb-0"></h2>
             </a>
             <p class="location text-sm leading-5 text-primary text-center"></p>
