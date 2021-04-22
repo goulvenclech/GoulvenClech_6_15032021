@@ -13,19 +13,30 @@ export class UserPage extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-            <main id = "content">Profil de : <span></span></main>
-        `;
+        <div class="flex flex-row flex-wrap max-w-screen-2xl h-20 mx-auto align-middle mb-12">
+            <img alt="Fisheye logo" class="h-12"
+              src="` + logo +  `" ></img>
+        </div>
+        <main id="content" class="text-center">
+            <h3>
+                Bienvenue sur le profil de
+            </h3>
+            <h2>
+            </h2>
+            <a href="/" class="button my-4 mx-auto">
+                Revenir à l'accueil
+            </a>
+        </main>
+    `;
         this.appendChild(template.content);
         this.render();
     }
     
     render() {
-        console.log(this.data);
-        console.log(this.id);
         if (this.data) {
-            this.querySelector('span').innerHTML = this.data.name
+            this.querySelector('h2').innerHTML = this.data.name
         } else {
-            this.querySelector('main').innerHTML = "Cet utilisateur n'existe pas"
+            this.querySelector('h3').innerHTML = "Cet utilisateur n'existe pas"
         }
     }
 
@@ -42,4 +53,6 @@ export class UserPage extends HTMLElement {
 
 // Import data from the JSON
 import data from '../assets/data/FishEyeDataFR.json'
+// Import logo from assets
+import logo from '../assets/images/logo.png'
 

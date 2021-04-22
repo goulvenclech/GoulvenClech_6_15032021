@@ -12,35 +12,30 @@ export class photographerCard extends HTMLElement {
     }
  
     /**
-     * Insert an empty template, then call render()
+     * Insert an template, hydrated by photographerData
      */
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-            <a href=""
-              class="linkToUser block mx-auto max-w-md z-10">
+            <a href="/user` + this.id + `"
+              class="block mx-auto max-w-md z-10">
                 <img class="h-48 w-48 mx-auto rounded-full object-cover"
-                  src=""></img>
-                <h2 class="text-4xl leading-snug text-center mb-0"></h2>
+                  src="./images/portraits/` + this.photographerData.portrait + `"></img>
+                <h2 class="text-4xl leading-snug text-center mb-0">`
+                    + this.photographerData.name +
+                `</h2>
             </a>
-            <p class="location text-sm leading-5 text-primary text-center"></p>
-            <p class="tagline text-xs leading-5 text-center"></p>
-            <p class="price text-xs leading-5 text-center"></p>
+            <p class="text-sm leading-5 text-primary text-center">`
+                + this.photographerData.city + `, ` + this.photographerData.country +
+            `</p>
+            <p class="text-xs leading-5 text-center">`
+                + this.photographerData.tagline +
+            `</p>
+            <p class="text-xs leading-5 text-center">`
+                + this.photographerData.price + `€/jour
+            </p>
         `;
         this.appendChild(template.content);
-        this.render();
-    }
-    
-    /**
-     * Hydrate the template with the the photographer's Data
-     */
-    render() {
-        this.querySelector(".linkToUser").href = "/user" + this.id;
-        this.querySelector("img").src = "../../../assets/images/portraits/" + this.photographerData.portrait;
-        this.querySelector("h2").innerHTML = this.photographerData.name;
-        this.querySelector(".location").innerHTML = this.photographerData.city + ", " + this.photographerData.country;
-        this.querySelector(".tagline").innerHTML = this.photographerData.tagline;
-        this.querySelector(".price").innerHTML = this.photographerData.price + "€/jour";
     }
 
     /**

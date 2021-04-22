@@ -16,11 +16,10 @@ import {UserPage} from './pages/user.js'
 window.customElements.define('user-page', UserPage);
 import {IndexPage} from './pages/index.js'
 window.customElements.define('index-page', IndexPage);
+import {Error404Page} from './pages/404.js'
+window.customElements.define('error404-page', Error404Page);
 // Import all the pages/components
-import {Navbar} from './pages/components/navbar.js'
-window.customElements.define('nav-bar', Navbar);
-import {ProfilePicture} from './pages/components/profile-picture.js'
-window.customElements.define('profile-picture', ProfilePicture);
+// EMPTY
 // Import all the pages/components/index components
 import {featuredPhotographers} from './pages/components/index/featured-photographers.js'
 window.customElements.define('featured-photographers', featuredPhotographers);

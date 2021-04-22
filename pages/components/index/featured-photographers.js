@@ -10,7 +10,7 @@ export class featuredPhotographers extends HTMLElement {
     } 
     
     /**
-     * Insert an flex template, then call render()
+     * Insert an empty template, then call render()
      */
     connectedCallback() {
         const template = document.createElement('template');
@@ -23,7 +23,7 @@ export class featuredPhotographers extends HTMLElement {
     }
     
     /**
-     * Add the to the template an <photographer-card> for each photographer
+     * Add to the template an <photographer-card> for each photographer
      */
     render() {
         this.photographers.forEach(FeaturedUsers => {

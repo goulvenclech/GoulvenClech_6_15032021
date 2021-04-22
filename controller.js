@@ -39,11 +39,9 @@ export class router{
         if (url == '/') {
             document.body.insertAdjacentHTML('afterbegin', '<index-page />')
         } else if(url.startsWith("/user")) {
-            var id = url.slice(5);
-            document.body.insertAdjacentHTML('afterbegin', '<user-page user="' + id + '"></photographer-card>')
+            document.body.insertAdjacentHTML('afterbegin', '<user-page user="' + url.slice(5) + '"></photographer-card>')
         } else {
-            document.title = "Erreur 404";
-            document.body.insertAdjacentHTML('afterbegin', '<p>Erreur 404</p>')
+            document.body.insertAdjacentHTML('afterbegin', '<error404-page></error404-page>')
         }
         // Update internalLinks
         this.readlinks();
