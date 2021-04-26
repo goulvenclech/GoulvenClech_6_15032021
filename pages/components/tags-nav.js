@@ -12,31 +12,43 @@ export class tagsNav extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-            <a class="tag">
-                #Portrait
+            <a class="tag" href="/tag-portrait">
+                #portrait
             </a>
-            <a class="tag">
-                #Art
+            <a class="tag" href="/tag-art">
+                #art
             </a>
-            <a class="tag">
-                #Fashion
+            <a class="tag" href="/tag-fashion">
+                #fashion
             </a>
-            <a class="tag">
-                #Architecture
+            <a class="tag" href="/tag-architecture">
+                #architecture
             </a>
-            <a class="tag">
-                #Travel
+            <a class="tag" href="/tag-travel">
+                #travel
             </a>
-            <a class="tag">
-                #Sport
+            <a class="tag" href="/tag-sport">
+                #sport
             </a>
-            <a class="tag">
-                #Animals
+            <a class="tag" href="/tag-animals">
+                #animals
             </a>
-            <a class="tag">
-                #Events
+            <a class="tag" href="/tag-events">
+                #events
             </a>
         `;
         this.appendChild(template.content);
+        this.activeCurrent();
     }
+
+    /**
+     * If the session is in a tag page, active the current tag
+    */
+         activeCurrent() {
+            this.querySelectorAll(".tag").forEach(tag => {
+                if (window.history.state.url.slice(5) == tag.href.split('tag-')[1]) {
+                    tag.classList.add("current");
+                }
+            });
+        }
 }

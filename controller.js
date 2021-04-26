@@ -38,8 +38,10 @@ export class router{
         // WORK IN PROGRESS //
         if (url == '/') {
             document.body.insertAdjacentHTML('afterbegin', '<index-page />')
+        } else if(url.startsWith("/tag-")) {
+            document.body.insertAdjacentHTML('afterbegin', '<tag-page id="' + url.slice(5) + '"></tag-page>')
         } else if(url.startsWith("/user")) {
-            document.body.insertAdjacentHTML('afterbegin', '<user-page user="' + url.slice(5) + '"></photographer-card>')
+            document.body.insertAdjacentHTML('afterbegin', '<user-page id="' + url.slice(5) + '"></user-page>')
         } else {
             document.body.insertAdjacentHTML('afterbegin', '<error404-page></error404-page>')
         }

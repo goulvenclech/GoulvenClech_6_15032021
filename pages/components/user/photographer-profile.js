@@ -16,7 +16,7 @@ export class photographerProfile extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-        <section class="bg-gray-100 rounded-md py-8 px-10 flex">
+        <section class="bg-gray-100 rounded-md py-8 px-10 mt-10 flex">
                 <div class="mr-6">
                     <h2>`
                         + this.photographerData.name +

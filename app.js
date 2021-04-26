@@ -12,10 +12,12 @@ import data from './assets/data/FishEyeDataFR.json'
 // import the router
 import {router} from './controller.js'
 // Import all the pages
-import {UserPage} from './pages/user.js'
-window.customElements.define('user-page', UserPage);
 import {IndexPage} from './pages/index.js'
 window.customElements.define('index-page', IndexPage);
+import {TagPage} from './pages/tag.js'
+window.customElements.define('tag-page', TagPage);
+import {UserPage} from './pages/user.js'
+window.customElements.define('user-page', UserPage);
 import {Error404Page} from './pages/404.js'
 window.customElements.define('error404-page', Error404Page);
 // Import all the pages/components
@@ -25,11 +27,14 @@ import {tagsNav} from './pages/components/tags-nav.js'
 window.customElements.define('tags-nav', tagsNav);
 import {photographerTags} from './pages/components/photographer-tags.js'
 window.customElements.define('photographer-tags', photographerTags);
+import {photographerCard} from './pages/components/photographer-card.js'
+window.customElements.define('photographer-card', photographerCard);
 // Import all the pages/components/index components
 import {featuredPhotographers} from './pages/components/index/featured-photographers.js'
 window.customElements.define('featured-photographers', featuredPhotographers);
-import {photographerCard} from './pages/components/index/photographer-card.js'
-window.customElements.define('photographer-card', photographerCard);
+// Import all the pages/components/tag components
+import {TaggedPhotographers} from './pages/components/tag/tagged-photographers.js'
+window.customElements.define('tagged-photographers', TaggedPhotographers);
 // Import all the pages/components/user components
 import {photographerProfile} from './pages/components/user/photographer-profile.js'
 window.customElements.define('photographer-profile', photographerProfile);

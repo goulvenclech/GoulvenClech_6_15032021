@@ -42,5 +42,9 @@
             @apply border-secondary bg-secondary text-white;
         }
 
+        &.current {
+            @apply border-primary bg-primary text-white;
+        }
+
     }
 }

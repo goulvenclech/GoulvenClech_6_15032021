@@ -12,11 +12,9 @@ export class FisheyeLogo extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-            <a href="/">
-                <div class="flex flex-row flex-wrap max-w-screen-2xl h-20 mx-auto align-middle mb-12">
-                    <img alt="Fisheye logo" class="h-12"
-                    src="` + logo +  `" ></img>
-                </div>
+            <a href="/" class="block max-w-screen-xl mx-auto">
+                <img alt="Fisheye logo" class="h-12"
+                src="` + logo +  `" ></img>
             </a>
         `;
         this.appendChild(template.content);

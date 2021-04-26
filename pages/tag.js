@@ -1,7 +1,8 @@
 /**
- * Home page of the application
+ * Alternative version of the index page of the application
+ * but just displaying one tag's photographer
  */
-export class IndexPage extends HTMLElement {
+export class TagPage extends HTMLElement {
     constructor() {
         super();
     } 

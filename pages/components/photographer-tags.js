@@ -1,11 +1,11 @@
 /**
  * A component with all the tags, displayed on the index and on the tag pages 
+ * Must be call with the photographer's ID as an ID atribute
  */
 export class photographerTags extends HTMLElement {
     constructor() {
+        // an ID attribute is needed
         super();
-        // get the photographer ID
-        this.id = this.getAttribute("id");
         // get the photographer Data
         this.tags = this.getPhotographerData(this.id).tags;
     }
@@ -26,8 +26,9 @@ export class photographerTags extends HTMLElement {
     render() {
         this.tags.forEach(tag => {
             this.querySelector("div").insertAdjacentHTML('beforeEnd',
-            '<a class="tag">#' + tag +'</a>');
+            '<a class="tag" href="/tag-' + tag + '">#' + tag +'</a>');
         });
+        this.activeCurrent();
     }
 
     /**
@@ -38,6 +39,17 @@ export class photographerTags extends HTMLElement {
      getPhotographerData(id) {
         // return the photographer in the JSON whose ID match the requested ID
         return data.photographers.find(photographer => photographer.id == id);
+    }
+
+    /**
+     * If the session is in a tag page, active the current tag
+     */
+    activeCurrent() {
+        this.querySelectorAll(".tag").forEach(tag => {
+            if (window.history.state.url.slice(5) == tag.href.split('tag-')[1]) {
+                tag.classList.add("current");
+            }
+        });
     }
 }
 

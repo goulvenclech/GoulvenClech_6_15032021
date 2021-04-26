@@ -1,11 +1,10 @@
 /**
- * A page displaying an user's profile
+ * A page displaying an user's profile, need to be called with an ID attribute
  */
 export class UserPage extends HTMLElement {
     constructor() {
+        // an ID attribute is needed
         super();
-        // get the user ID
-        this.id = this.getAttribute('user');
         // get the user Data
         this.data = this.getUserData(this.id);
     } 
@@ -14,7 +13,7 @@ export class UserPage extends HTMLElement {
         const template = document.createElement('template');
         template.innerHTML = `
         <fisheye-logo></fisheye-logo>
-        <main id="content" class="max-w-screen-xl mx-auto">
+        <main id="content" class="max-w-screen-xl w-full mx-auto">
             <photographer-profile></photographer-profile>
             <a href="/" class="button my-4 mx-auto">
                 Revenir à l'accueil

@@ -4,9 +4,8 @@
  */
 export class photographerCard extends HTMLElement {
     constructor() {
+        // an ID attribute is needed
         super();
-        // get the photographer ID
-        this.id = this.getAttribute("id");
         // get the photographer Data
         this.photographerData = this.getPhotographerData(this.id);
     }
@@ -51,4 +50,4 @@ export class photographerCard extends HTMLElement {
 }
 
 // Import data from the JSON
-import data from '../../../assets/data/FishEyeDataFR.json'
+import data from '../../assets/data/FishEyeDataFR.json'
