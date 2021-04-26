@@ -34,6 +34,7 @@ export class photographerCard extends HTMLElement {
             <p class="text-xs leading-5 text-center">`
                 + this.photographerData.price + `€/jour
             </p>
+            <photographer-tags class="text-center" id="` + this.id + `"></photographer-tags>
         `;
         this.appendChild(template.content);
     }

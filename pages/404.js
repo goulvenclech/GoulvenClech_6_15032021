@@ -12,10 +12,7 @@
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-            <div class="flex flex-row flex-wrap max-w-screen-2xl h-20 mx-auto align-middle mb-12">
-                <img alt="Fisheye logo" class="h-12"
-                  src="` + logo +  `" ></img>
-            </div>
+         <fisheye-logo></fisheye-logo>
             <main id="content" class="text-center">
                 <h3>
                     Erreur 404 😭
@@ -33,6 +30,3 @@
         document.title = "Erreur 404 - Fisheye";
     }
 }
-
-// Import logo from assets
-import logo from '../assets/images/logo.png'

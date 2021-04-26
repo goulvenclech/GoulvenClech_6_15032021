@@ -13,10 +13,7 @@ export class UserPage extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-        <div class="flex flex-row flex-wrap max-w-screen-xl h-20 mx-auto align-middle mb-6">
-            <img alt="Fisheye logo" class="h-12"
-              src="` + logo +  `" ></img>
-        </div>
+        <fisheye-logo></fisheye-logo>
         <main id="content" class="max-w-screen-xl mx-auto">
             <photographer-profile></photographer-profile>
             <a href="/" class="button my-4 mx-auto">
@@ -52,6 +49,4 @@ export class UserPage extends HTMLElement {
 
 // Import data from the JSON
 import data from '../assets/data/FishEyeDataFR.json'
-// Import logo from assets
-import logo from '../assets/images/logo.png'
 

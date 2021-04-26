@@ -19,7 +19,12 @@ window.customElements.define('index-page', IndexPage);
 import {Error404Page} from './pages/404.js'
 window.customElements.define('error404-page', Error404Page);
 // Import all the pages/components
-// EMPTY
+import {FisheyeLogo} from './pages/components/logo.js'
+window.customElements.define('fisheye-logo', FisheyeLogo);
+import {tagsNav} from './pages/components/tags-nav.js'
+window.customElements.define('tags-nav', tagsNav);
+import {photographerTags} from './pages/components/photographer-tags.js'
+window.customElements.define('photographer-tags', photographerTags);
 // Import all the pages/components/index components
 import {featuredPhotographers} from './pages/components/index/featured-photographers.js'
 window.customElements.define('featured-photographers', featuredPhotographers);

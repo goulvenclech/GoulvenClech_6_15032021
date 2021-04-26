@@ -27,6 +27,7 @@ export class photographerProfile extends HTMLElement {
                     <p>`
                         + this.photographerData.tagline +
                     `</p>
+                    <photographer-tags id="` + this.id +`"><photographers-tags>
                 </div>
                 <div class="mr-6">
                     <a class="button my-4 mx-auto">

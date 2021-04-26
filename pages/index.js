@@ -13,9 +13,10 @@ export class IndexPage extends HTMLElement {
         const template = document.createElement('template');
         template.innerHTML = `
             <div class="flex flex-row flex-wrap max-w-screen-xl h-20 mx-auto align-middle mb-12">
-                <img alt="Fisheye logo" class="h-12"
-                  src="` + logo +  `" ></img>
-                <div class="flex-grow"></div>
+                <fisheye-logo></fisheye-logo>
+                <div class="p-2 flex-grow text-center align-middle">
+                    <tags-nav></tags-nav> 
+                </div>
                 <h1 class="text-4xl text-primary">
                     Nos photographes
                 </h1>
@@ -30,6 +31,3 @@ export class IndexPage extends HTMLElement {
         document.title = "Fisheye";
     }
 }
-
-// Import logo from assets
-import logo from '../assets/images/logo.png'
