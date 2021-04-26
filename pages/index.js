@@ -12,7 +12,7 @@ export class IndexPage extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-            <div class="flex flex-row flex-wrap max-w-screen-2xl h-20 mx-auto align-middle mb-12">
+            <div class="flex flex-row flex-wrap max-w-screen-xl h-20 mx-auto align-middle mb-12">
                 <img alt="Fisheye logo" class="h-12"
                   src="` + logo +  `" ></img>
                 <div class="flex-grow"></div>
@@ -20,7 +20,7 @@ export class IndexPage extends HTMLElement {
                     Nos photographes
                 </h1>
             </div>
-            <main id="content">
+            <main id="content" class="max-w-screen-xl mx-auto">
                 <featured-photographers></featured-photographers>
             </main>
             

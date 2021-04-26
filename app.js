@@ -25,6 +25,9 @@ import {featuredPhotographers} from './pages/components/index/featured-photograp
 window.customElements.define('featured-photographers', featuredPhotographers);
 import {photographerCard} from './pages/components/index/photographer-card.js'
 window.customElements.define('photographer-card', photographerCard);
+// Import all the pages/components/user components
+import {photographerProfile} from './pages/components/user/photographer-profile.js'
+window.customElements.define('photographer-profile', photographerProfile);
 
 // create a new session
 window.onload = function() {

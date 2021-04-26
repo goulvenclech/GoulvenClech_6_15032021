@@ -13,16 +13,12 @@ export class UserPage extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-        <div class="flex flex-row flex-wrap max-w-screen-2xl h-20 mx-auto align-middle mb-12">
+        <div class="flex flex-row flex-wrap max-w-screen-xl h-20 mx-auto align-middle mb-6">
             <img alt="Fisheye logo" class="h-12"
               src="` + logo +  `" ></img>
         </div>
-        <main id="content" class="text-center">
-            <h3>
-                Bienvenue sur le profil de
-            </h3>
-            <h2>
-            </h2>
+        <main id="content" class="max-w-screen-xl mx-auto">
+            <photographer-profile></photographer-profile>
             <a href="/" class="button my-4 mx-auto">
                 Revenir à l'accueil
             </a>
@@ -33,10 +29,13 @@ export class UserPage extends HTMLElement {
     }
     
     render() {
-        if (this.data) {
-            this.querySelector('h2').innerHTML = this.data.name
-        } else {
-            this.querySelector('h3').innerHTML = "Cet utilisateur n'existe pas"
+        // display an error if the user ID is invalid
+        if (!this.data) {
+            this.querySelector('photographer-profile').remove();
+            this.querySelector("main").insertAdjacentHTML('afterBegin',
+            "<p>L'ID que vous recherchez est invalide ou le compte a été supprimé.</p>");
+            this.querySelector("main").insertAdjacentHTML('afterBegin',
+            "<h3>Cet utilisateur n'existe pas 🕵️</h3>");
         }
     }
 
@@ -46,7 +45,7 @@ export class UserPage extends HTMLElement {
      * @returns {object} - all the user data
      */
     getUserData(id) {
-        // return the photographer in the JSON whose ID match the requested ID
+        // return the photograpbeel Bradfordher in the JSON whose ID match the requested ID
         return data.photographers.find(user => user.id == id);
     }
 }
