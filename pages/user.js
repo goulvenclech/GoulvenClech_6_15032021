@@ -22,10 +22,14 @@ export class UserPage extends HTMLElement {
     `;
         this.appendChild(template.content);
         this.render();
+        // change the page title
+        document.title = this.data.name + " - Fisheye";
     }
     
+    /**
+     * display an error if the user ID is invalid
+     */
     render() {
-        // display an error if the user ID is invalid
         if (!this.data) {
             this.querySelector('photographer-profile').remove();
             this.querySelector("main").insertAdjacentHTML('afterBegin',

@@ -1,12 +1,14 @@
 /**
- * A component that will create one <photographer-card> for each photographer
- * in order to feature them on the index page
+ * A component that will create one <photographer-card> for each 
+ * photographer tagged with a specific tag
  */
 export class TaggedPhotographers extends HTMLElement {
     constructor() {
         super();
-        // get all the photographers from the data
-        this.photographers = data.photographers;
+        // get the current tag
+        this.tag = window.history.state.url.slice(5);
+        // get all the photographers tagged with this tag, from the data
+        this.photographers = data.photographers.filter(photographer => photographer.tags.includes(this.tag));
     } 
     
     /**
@@ -24,12 +26,20 @@ export class TaggedPhotographers extends HTMLElement {
     
     /**
      * Add to the template an <photographer-card> for each photographer
+     * If there is not photographer, display an error
      */
     render() {
-        this.photographers.forEach(FeaturedUsers => {
-            this.querySelector("div").insertAdjacentHTML('beforeend',
-            "<photographer-card id=" + FeaturedUsers.id + "></photographer-card>");
-        })
+        if(this.photographers.length > 0) {
+            this.photographers.forEach(FeaturedUsers => {
+                this.querySelector("div").insertAdjacentHTML('beforeend',
+                "<photographer-card id=" + FeaturedUsers.id + "></photographer-card>");
+            })
+        } else {
+            this.querySelector("div").insertAdjacentHTML('beforebegin',
+                `<h3>Le tag #` + this.tag + ` ne correspond a aucun photographe 😔</h3>`);
+                this.querySelector("div").insertAdjacentHTML('beforebegin',
+                `<a href="/" class="button my-4 mx-auto">Revenir à l'accueil</a>`);
+        }
     }
 }
 

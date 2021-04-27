@@ -5,6 +5,8 @@
 export class TagPage extends HTMLElement {
     constructor() {
         super();
+        // get the current tag
+        this.tag = window.history.state.url.slice(5);
     } 
     
     /**
@@ -18,17 +20,17 @@ export class TagPage extends HTMLElement {
                 <div class="p-2 flex-grow text-center align-middle">
                     <tags-nav></tags-nav> 
                 </div>
-                <h1 class="text-3xl text-primary text-right">
-                    Nos photographes
-                </h1>
+                <h1 class="text-3xl text-primary text-right w-72">#`
+                    + this.tag + 
+                `</h1>
             </div>
             <main id="content" class="max-w-screen-xl w-full mx-auto">
-                <featured-photographers></featured-photographers>
+                <tagged-photographers></tagged-photographers>
             </main>
             
         `;
         this.appendChild(template.content);
         // change the page title
-        document.title = "Fisheye";
+        document.title = "#" + this.tag + " - Fisheye";
     }
 }

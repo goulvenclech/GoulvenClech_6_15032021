@@ -17,7 +17,7 @@ export class IndexPage extends HTMLElement {
                 <div class="p-2 flex-grow text-center align-middle">
                     <tags-nav></tags-nav> 
                 </div>
-                <h1 class="text-3xl text-primary text-right">
+                <h1 class="text-3xl text-primary text-right w-72">
                     Nos photographes
                 </h1>
             </div>
