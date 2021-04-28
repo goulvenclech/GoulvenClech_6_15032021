@@ -38,6 +38,8 @@ window.customElements.define('tagged-photographers', TaggedPhotographers);
 // Import all the pages/components/user components
 import {photographerProfile} from './pages/components/user/photographer-profile.js'
 window.customElements.define('photographer-profile', photographerProfile);
+import {photographerMedias} from './pages/components/user/photographer-medias.js'
+window.customElements.define('photographer-medias', photographerMedias);
 
 // create a new session
 window.onload = function() {

@@ -48,6 +48,7 @@ export class tagsNav extends HTMLElement {
             this.querySelectorAll(".tag").forEach(tag => {
                 if (window.history.state.url.slice(5) == tag.href.split('tag-')[1]) {
                     tag.classList.add("current");
+                    tag.href = "/";
                 }
             });
         }

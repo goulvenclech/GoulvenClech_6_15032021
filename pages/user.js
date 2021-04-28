@@ -15,9 +15,7 @@ export class UserPage extends HTMLElement {
         <fisheye-logo></fisheye-logo>
         <main id="content" class="max-w-screen-xl w-full mx-auto">
             <photographer-profile></photographer-profile>
-            <a href="/" class="button my-4 mx-auto">
-                Revenir à l'accueil
-            </a>
+            <photographer-medias></photographer-medias>
         </main>
     `;
         this.appendChild(template.content);

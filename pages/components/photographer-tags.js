@@ -6,7 +6,7 @@ export class photographerTags extends HTMLElement {
     constructor() {
         // an ID attribute is needed
         super();
-        // get the photographer Data
+        // get the photographer tags
         this.tags = this.getPhotographerData(this.id).tags;
     }
  
@@ -32,6 +32,18 @@ export class photographerTags extends HTMLElement {
     }
 
     /**
+     * If the session is in a tag page, active the current tag
+     */
+    activeCurrent() {
+        this.querySelectorAll(".tag").forEach(tag => {
+            if (window.history.state.url.slice(5) == tag.href.split('tag-')[1]) {
+                tag.classList.add("current");
+                tag.href = "/";
+            }
+        });
+    }
+
+    /**
      * From an ID return a JS object with all the photographer's data from the JSON
      * @param {integer} id - id of the photographer
      * @returns {object} - all the photographer data
@@ -39,17 +51,6 @@ export class photographerTags extends HTMLElement {
      getPhotographerData(id) {
         // return the photographer in the JSON whose ID match the requested ID
         return data.photographers.find(photographer => photographer.id == id);
-    }
-
-    /**
-     * If the session is in a tag page, active the current tag
-     */
-    activeCurrent() {
-        this.querySelectorAll(".tag").forEach(tag => {
-            if (window.history.state.url.slice(5) == tag.href.split('tag-')[1]) {
-                tag.classList.add("current");
-            }
-        });
     }
 }
 

@@ -38,13 +38,14 @@
     .tag {
         @apply px-2 py-1 mr-1 border-solid border border-gray-300 rounded-full duration-200 text-primary text-sm font-medium;
 
-        &:hover {
+        &:hover, &.current:hover {
             @apply border-secondary bg-secondary text-white;
         }
 
         &.current {
             @apply border-primary bg-primary text-white;
         }
+
     }
 
 }
