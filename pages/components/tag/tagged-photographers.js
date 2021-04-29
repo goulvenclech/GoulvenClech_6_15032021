@@ -8,7 +8,7 @@ export class TaggedPhotographers extends HTMLElement {
         // get the current tag
         this.tag = window.history.state.url.slice(5);
         // get all the photographers tagged with this tag, from the data
-        this.photographers = data.photographers.filter(photographer => photographer.tags.includes(this.tag));
+        this.photographers = this.getTaggedPhotographers(this.tag);
     } 
     
     /**
@@ -40,6 +40,16 @@ export class TaggedPhotographers extends HTMLElement {
                 this.querySelector("div").insertAdjacentHTML('beforebegin',
                 `<a href="/" class="button my-4 mx-auto">Revenir à l'accueil</a>`);
         }
+    }
+
+    /**
+     * From a tag return all the tagged photographers from the JSON
+     * @param {string} tag - a tag
+     * @returns {array} - all the photographers tagged
+     */
+     getTaggedPhotographers(tag) {
+        // return all the photographers from the JSON whose tags include the looked tag
+        return data.photographers.filter(photographer => photographer.tags.includes(tag));
     }
 }
 

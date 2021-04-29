@@ -7,7 +7,7 @@ export class photographerTags extends HTMLElement {
         // an ID attribute is needed
         super();
         // get the photographer tags
-        this.tags = this.getPhotographerData(this.id).tags;
+        this.tags = this.getPhotographerTags(this.id);
     }
  
     /**
@@ -44,13 +44,13 @@ export class photographerTags extends HTMLElement {
     }
 
     /**
-     * From an ID return a JS object with all the photographer's data from the JSON
+     * From an ID return an array with all the photographer's tags from the JSON
      * @param {integer} id - id of the photographer
-     * @returns {object} - all the photographer data
+     * @returns {array} - all the photographer tags
      */
-     getPhotographerData(id) {
-        // return the photographer in the JSON whose ID match the requested ID
-        return data.photographers.find(photographer => photographer.id == id);
+     getPhotographerTags(id) {
+        // return the photographer's tags, from the photographer whose ID match the requested ID
+        return data.photographers.find(photographer => photographer.id == id).tags;
     }
 }
 

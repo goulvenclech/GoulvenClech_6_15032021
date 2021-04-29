@@ -7,10 +7,9 @@ export class photographerMedias extends HTMLElement {
         // get the photographer ID from url
         this.id = window.history.state.url.slice(5);
         // get the photographer name from ID
-        this.photographerName = this.getPhotographerData(this.id).name;
+        this.photographerName = this.getPhotographerName(this.id);
         // get the photographer Data
-        this.photographerMedias = data.media.filter(media => media.photographerId == this.id);
-
+        this.medias = this.getMedias(this.id);
     }
  
     /**
@@ -31,26 +30,36 @@ export class photographerMedias extends HTMLElement {
      * 
      */
     render() {
-        this.photographerMedias.forEach(media => {
+        this.medias.forEach(media => {
             if(media.image) {
                 this.querySelector("section").insertAdjacentHTML('beforeEnd', 
                 '<img class="h-80 w-full object-cover rounded-md" src="./images/' + this.photographerName.split(' ')[0] + '/' + media.image.slice(0, -4) + '-min.jpg">');
             }else if(media.video) {
                 this.querySelector("section").insertAdjacentHTML('beforeEnd', 
-                '<div class="bg-gray-200 h-80 w-full object-cover rounded-md"></div>');
+                '<video class="h-80 w-full object-cover rounded-md none"><source src="./images/' + this.photographerName.split(' ')[0] + '/' + media.video + '" type="video/mp4"></video>');
             }
             
         });
     }
 
     /**
-     * From an ID return a JS object with all the photographer's data from the JSON
+     * From an ID return a string with the photographer's name from the JSON
      * @param {integer} id - id of the photographer
-     * @returns {object} - all the photographer data
+     * @returns {string} - the photographer's name
      */
-    getPhotographerData(id) {
+    getPhotographerName(id) {
         // return the photographer in the JSON whose ID match the requested ID
-        return data.photographers.find(photographer => photographer.id == id);
+        return data.photographers.find(photographer => photographer.id == id).name;
+    }
+
+    /**
+     * From an ID return an array with all the photographer's medias from the JSON
+     * @param {integer} id - id of the photographer
+     * @returns {array} - the photographer's medias
+     */
+    getMedias(id) {
+        // return the photographer in the JSON whose ID match the requested ID
+        return data.media.filter(media => media.photographerId == id);
     }
 
 }
