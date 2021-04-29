@@ -24,7 +24,6 @@ export class photographerMedias extends HTMLElement {
         </section>
         `;
         this.appendChild(template.content);
-        console.log(this.photographerName.split(' ')[0])
         this.render();
     }
 
@@ -33,8 +32,14 @@ export class photographerMedias extends HTMLElement {
      */
     render() {
         this.photographerMedias.forEach(media => {
-            this.querySelector("section").insertAdjacentHTML('beforeEnd', 
-            '<img class="h-80 w-full object-cover rounded-md" src="./images/' + this.photographerName.split(' ')[0] + '/' + media.image + '">');
+            if(media.image) {
+                this.querySelector("section").insertAdjacentHTML('beforeEnd', 
+                '<img class="h-80 w-full object-cover rounded-md" src="./images/' + this.photographerName.split(' ')[0] + '/' + media.image.slice(0, -4) + '-min.jpg">');
+            }else if(media.video) {
+                this.querySelector("section").insertAdjacentHTML('beforeEnd', 
+                '<div class="bg-gray-200 h-80 w-full object-cover rounded-md"></div>');
+            }
+            
         });
     }
 
