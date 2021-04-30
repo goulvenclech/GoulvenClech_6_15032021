@@ -15,6 +15,7 @@ export class UserPage extends HTMLElement {
         <fisheye-logo></fisheye-logo>
         <main id="content" class="max-w-screen-xl w-full mx-auto">
             <photographer-profile></photographer-profile>
+            <medias-select></medias-select>
             <photographer-medias></photographer-medias>
         </main>
     `;

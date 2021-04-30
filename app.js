@@ -36,12 +36,14 @@ window.customElements.define('featured-photographers', featuredPhotographers);
 import {TaggedPhotographers} from './pages/components/tag/tagged-photographers.js'
 window.customElements.define('tagged-photographers', TaggedPhotographers);
 // Import all the pages/components/user components
-import {photographerProfile} from './pages/components/user/photographer-profile.js'
-window.customElements.define('photographer-profile', photographerProfile);
-import {photographerMedias} from './pages/components/user/photographer-medias.js'
-window.customElements.define('photographer-medias', photographerMedias);
 import {mediaCard} from './pages/components/user/media-card'
 window.customElements.define('media-card', mediaCard);
+import {mediasSelect} from './pages/components/user/medias-select.js'
+window.customElements.define('medias-select', mediasSelect);
+import {photographerMedias} from './pages/components/user/photographer-medias.js'
+window.customElements.define('photographer-medias', photographerMedias);
+import {photographerProfile} from './pages/components/user/photographer-profile.js'
+window.customElements.define('photographer-profile', photographerProfile);
 
 // create a new session
 window.onload = function() {
