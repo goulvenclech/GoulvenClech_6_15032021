@@ -17,6 +17,7 @@ export class UserPage extends HTMLElement {
             <photographer-profile></photographer-profile>
             <medias-select></medias-select>
             <photographer-medias></photographer-medias>
+            <media-lightbox></media-lightbox>
         </main>
     `;
         this.appendChild(template.content);

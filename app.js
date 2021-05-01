@@ -36,8 +36,10 @@ window.customElements.define('featured-photographers', featuredPhotographers);
 import {TaggedPhotographers} from './pages/components/tag/tagged-photographers.js'
 window.customElements.define('tagged-photographers', TaggedPhotographers);
 // Import all the pages/components/user components
-import {mediaCard} from './pages/components/user/media-card'
+import {mediaCard} from './pages/components/user/media-card.js'
 window.customElements.define('media-card', mediaCard);
+import {mediaLightbox} from './pages/components/user/media-lightbox.js'
+window.customElements.define('media-lightbox', mediaLightbox);
 import {mediasSelect} from './pages/components/user/medias-select.js'
 window.customElements.define('medias-select', mediasSelect);
 import {photographerMedias} from './pages/components/user/photographer-medias.js'

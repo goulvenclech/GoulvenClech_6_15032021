@@ -20,14 +20,14 @@ export class mediaCard extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-            <a href="">
+            <article>
                 <div class="flex gap py-2">
                     <p class="text-primary text-xl flex-grow">` + this.mediaData.title + `</p>
                     <button class="text-primary text-xl text-right">`
                          + this.mediaData.likes + 
                     ` ❤️</button>
                 </div>
-            </a>
+            </article>
         `;
         this.appendChild(template.content);
         this.render();
@@ -38,11 +38,11 @@ export class mediaCard extends HTMLElement {
      */
     render() {
         if(this.mediaData.image) {
-            this.querySelector("a").insertAdjacentHTML('afterbegin', 
-            '<img class="h-80 w-full object-cover rounded-md" src="./images/' + this.photographerName.split(' ')[0] + '/' + this.mediaData.image.slice(0, -4) + '-min.jpg">');
+            this.querySelector("article").insertAdjacentHTML('afterbegin', 
+            '<img class="h-80 w-full object-cover rounded-md cursor-pointer" alt="' + this.mediaData.title +'" src="./images/' + this.photographerName.split(' ')[0] + '/' + this.mediaData.image.slice(0, -4) + '-min.jpg">');
         }else if(this.mediaData.video) {
-            this.querySelector("a").insertAdjacentHTML('afterbegin', 
-            '<video class="h-80 w-full object-cover rounded-md none"><source src="./images/' + this.photographerName.split(' ')[0] + '/' + this.mediaData.video + '" type="video/mp4"></video>');
+            this.querySelector("article").insertAdjacentHTML('afterbegin', 
+            '<video class="h-80 w-full object-cover rounded-md none cursor-pointer"><source alt="' + this.mediaData.title +'" src="./images/' + this.photographerName.split(' ')[0] + '/' + this.mediaData.video + '" type="video/mp4"></video>');
         }
     }
 

@@ -26,26 +26,38 @@
     p {
         @apply text-font text-lg;
     }
+}
 
-    .button {
-        @apply inline-block bg-primary rounded-md py-4 px-6 font-semibold text-base text-white opacity-100;
+.button {
+    @apply inline-block bg-primary rounded-md py-4 px-6 font-semibold text-base text-white opacity-100;
 
-        &:hover {
-            @apply bg-secondary opacity-100;
-        }
+    &:hover {
+        @apply bg-secondary opacity-100;
+    }
+}
+
+.tag {
+    @apply px-2 py-1 mr-1 border-solid border border-gray-300 rounded-full duration-200 text-primary text-sm font-medium;
+
+    &:hover, &.current:hover {
+        @apply border-secondary bg-secondary text-white;
     }
 
-    .tag {
-        @apply px-2 py-1 mr-1 border-solid border border-gray-300 rounded-full duration-200 text-primary text-sm font-medium;
-
-        &:hover, &.current:hover {
-            @apply border-secondary bg-secondary text-white;
-        }
-
-        &.current {
-            @apply border-primary bg-primary text-white;
-        }
-
+    &.current {
+        @apply border-primary bg-primary text-white;
     }
 
 }
+
+.lightbox {
+        margin-top: 50vh;
+        transform: translateY(-50%);
+        max-width: 99%;
+
+    & img {
+        max-height: 90vh;
+        min-height: 20vh;
+        min-width: 20vh;
+    }
+}
+

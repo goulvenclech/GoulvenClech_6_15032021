@@ -1,7 +1,7 @@
 /**
- * A component that will display all the photographer's medias on his page
+ * 
  */
-export class photographerMedias extends HTMLElement {
+export class mediaLightbox extends HTMLElement {
     constructor() {
         super();
         // get the photographer ID from url
@@ -16,25 +16,41 @@ export class photographerMedias extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-        <section class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-4">
+        <div class="top-0 left-0 hidden fixed bg-white h-screen w-screen">
+            <section class="lightbox flex">
 
-        </section>
+                <div class="flex-grow flex flex-row-reverse">
+                    <button class="w-14 text-5xl text-bold text-primary"><</button>
+                </div>
+
+                <div class="flex-shrink">
+                    <img class="self-center" src=""></img>
+                    <p class="text-primary text-xl my-2"></p>
+                </div>
+
+                <div class="flex-grow flex flex-row">
+                    <button class="closeLightbox absolute w-10 text-bold text-5xl text-primary">x</button>
+                    <button class="w-14 text-5xl text-bold text-primary">></button>
+                </div>
+
+            
+            </section>
+        </div>
         `;
         this.appendChild(template.content);
         this.sort("date");
-        this.render();
         this.listenSort();
+        this.listenOpenLightbox();
+        this.listenCloseLightbox();
     }
 
     /**
-     *  Clear the section, then create a <media-card> for each media
+     *  
      */
-    render() {
-        this.querySelector("section").innerHTML = "";
-        this.medias.forEach(media => {
-            this.querySelector("section").insertAdjacentHTML('beforeEnd', 
-            '<media-card id="' + media.id + '"></media-card>');
-        });
+    render(media) {
+        this.querySelector("div").style.display = "block";
+        this.querySelector("img").src = media.src.slice(0,-8) + '.jpg';
+        this.querySelector("p").innerHTML = media.alt;
     }
 
     /**
@@ -70,8 +86,25 @@ export class photographerMedias extends HTMLElement {
      */
      listenSort() {
         document.getElementById("sortMedias").addEventListener('change', select => {
-            this.sort(select.target.value)
-            this.render();
+            this.sort(select.target.value);
+        })
+    }
+
+    /**
+     * 
+     */
+    listenOpenLightbox() {
+        document.querySelectorAll("article img").forEach(media => {
+            media.addEventListener('click', () => {this.render(media)})
+        })
+    }
+
+    /**
+     * 
+     */
+    listenCloseLightbox() {
+        this.querySelector(".closeLightbox").addEventListener('click', () => {
+            this.querySelector("div").style.display = "none";
         })
     }
 
