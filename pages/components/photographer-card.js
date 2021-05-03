@@ -2,7 +2,7 @@
  * A component that will present a photographer on the index page
  * Must be call with the photographer's ID as an ID atribute
  */
-export class photographerCard extends HTMLElement {
+export class PhotographerCard extends HTMLElement {
     constructor() {
         // an ID attribute is needed
         super();

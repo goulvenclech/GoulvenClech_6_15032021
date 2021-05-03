@@ -2,7 +2,7 @@
  * A component with all the tags, displayed on the index and on the tag pages 
  * Must be call with the photographer's ID as an ID atribute
  */
-export class photographerTags extends HTMLElement {
+export class PhotographerTags extends HTMLElement {
     constructor() {
         // an ID attribute is needed
         super();

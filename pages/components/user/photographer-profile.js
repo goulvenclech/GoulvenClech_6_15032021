@@ -1,7 +1,7 @@
 /**
  * A component that will present a photographer on his user page
  */
-export class photographerProfile extends HTMLElement {
+export class PhotographerProfile extends HTMLElement {
     constructor() {
         super();
         // get the photographer ID from url

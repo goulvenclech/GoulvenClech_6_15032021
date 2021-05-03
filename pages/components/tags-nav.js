@@ -1,7 +1,7 @@
 /**
  * A component with all the tags, displayed on the index and on the tag pages 
  */
-export class tagsNav extends HTMLElement {
+export class TagsNav extends HTMLElement {
     constructor() {
         super();
     }

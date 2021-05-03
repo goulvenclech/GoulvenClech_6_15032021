@@ -2,7 +2,7 @@
  * A component that will create one <photographer-card> for each photographer
  * in order to feature them on the index page
  */
-export class featuredPhotographers extends HTMLElement {
+export class FeaturedPhotographers extends HTMLElement {
     constructor() {
         super();
         // get all the photographers from the data

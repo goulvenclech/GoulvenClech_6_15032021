@@ -1,7 +1,7 @@
 /**
  * 
  */
-export class mediaLightbox extends HTMLElement {
+export class MediaLightbox extends HTMLElement {
     constructor() {
         super();
         // get the photographer ID from url

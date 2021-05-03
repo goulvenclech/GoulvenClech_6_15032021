@@ -3,7 +3,7 @@
  * handle user requests check if there is a page or a corresponding user, if so print 
  * the adapted page, otherwise return to a 404 page
  */
-export class router{
+export class Router{
     /**
      * The router need all the internal links of a page and the user navigation history
      */
@@ -15,7 +15,7 @@ export class router{
             this.print(stateUrl);
         });
         // call the factory that will create the page for the request
-        this.pageFactory = new pageFactory();
+        this.pageFactory = new PageFactory();
         // the page create by the Factory
         this.currentPage;
         // Query all internals links
@@ -77,52 +77,55 @@ export class router{
  * But I wouldn't have done it with a factory. But making a factory was mandatory
  * in the project. LONG STORY SHORT, it sucks.
  */
- function pageFactory() {
-     /**
-      * Take a user request, if it's valid return a page, if it's invalid return the error404 page
-      * @param {string} url - the user's request 
-      * @returns {object} - a page, will be registered as this.currentPage in the router
-      */
-    this.createPage = function (url) {
+ class PageFactory {
+    /**
+     * here it's all the different pages possible for the PageFactory
+     */
+    constructor() {
+        this.index = function() {
+            this.print = function () {
+                document.body.insertAdjacentHTML('afterbegin', '<index-page />')
+            }
+        } 
+        this.tag = function() {
+            this.print = function () {
+                document.body.insertAdjacentHTML('afterbegin', '<tag-page id="' + this.url.slice(5) + '"></tag-page>')
+            }
+        }
+        this.user = function() {
+            this.print = function () {
+                document.body.insertAdjacentHTML('afterbegin', '<user-page id="' + this.url.slice(5) + '"></user-page>')
+            }
+        }
+        this.console404 = function() {
+            this.print = function () {
+                document.body.insertAdjacentHTML('afterbegin', '<error404-page></error404-page>')
+            }
+        }
+
+    }
+
+    /**
+     * Take a user request, if it's valid return a page, if it's invalid return the error404 page
+     * @param {string} url - the user's request 
+     * @returns {object} - a page, will be registered as this.currentPage in the router
+     */
+    createPage(url) {
         let Page;
 
         if (url == '/') {
-            Page = new index();
+            Page = new this.index();
         } else if(url.startsWith("/tag-")) {
-            Page = new tag();
+            Page = new this.tag();
         } else if(url.startsWith("/user")) {
-            Page = new user();
+            Page = new this.user();
         } else {
-            Page = new error404();
+            Page = new this.error404();
         }
-        
-        Page.url = url
 
+        Page.url = url;
+        
         return Page;
     }
-    
 }
 
-/**
- * here it's all the different pages possible for the PageFactory
- */
-const index = function () {
-    this.print = function () {
-        document.body.insertAdjacentHTML('afterbegin', '<index-page />')
-    }
-} 
-const tag = function () {
-    this.print = function () {
-        document.body.insertAdjacentHTML('afterbegin', '<tag-page id="' + this.url.slice(5) + '"></tag-page>')
-    }
-}
-const user = function () {
-    this.print = function () {
-        document.body.insertAdjacentHTML('afterbegin', '<user-page id="' + this.url.slice(5) + '"></user-page>')
-    }
-}
-const console404 = function () {
-    this.print = function () {
-        document.body.insertAdjacentHTML('afterbegin', '<error404-page></error404-page>')
-    }
-}

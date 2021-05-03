@@ -1,7 +1,7 @@
 /**
  * A custom <select> component for sorting photographer's media
  */
-export class mediasSelect extends HTMLElement {
+export class MediasSelect extends HTMLElement {
     constructor() {
         super();
     }

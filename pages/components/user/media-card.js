@@ -1,7 +1,7 @@
 /**
  * A component that will display a photographer's media on his page
  */
-export class mediaCard extends HTMLElement {
+export class MediaCard extends HTMLElement {
     constructor() {
         // an ID attribute is needed
         super();

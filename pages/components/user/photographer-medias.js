@@ -1,7 +1,7 @@
 /**
  * A component that will display all the photographer's medias on his page
  */
-export class photographerMedias extends HTMLElement {
+export class PhotographerMedias extends HTMLElement {
     constructor() {
         super();
         // get the photographer ID from url
