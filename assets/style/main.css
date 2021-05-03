@@ -54,7 +54,7 @@
         transform: translateY(-50%);
         max-width: 99%;
 
-    & img {
+    & img, & video {
         max-height: 90vh;
         min-height: 20vh;
         min-width: 20vh;

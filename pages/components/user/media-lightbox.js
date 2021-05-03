@@ -6,8 +6,6 @@ export class MediaLightbox extends HTMLElement {
         super();
         // get the photographer ID from url
         this.id = window.history.state.url.slice(5);
-        // get the photographer medias
-        this.medias = this.getMedias(this.id);
     }
  
     /**
@@ -24,12 +22,12 @@ export class MediaLightbox extends HTMLElement {
                 </div>
 
                 <div class="flex-shrink">
-                    <img class="self-center" src=""></img>
+                    <lightbox-content></lightbox-content>
                     <p class="text-primary text-xl my-2"></p>
                 </div>
 
                 <div class="flex-grow flex flex-row">
-                    <button class="closeLightbox absolute w-10 text-bold text-5xl text-primary">x</button>
+                    <button class="closeLightbox absolute w-14 text-bold text-5xl text-primary">x</button>
                     <button class="w-14 text-5xl text-bold text-primary">></button>
                 </div>
 
@@ -38,8 +36,6 @@ export class MediaLightbox extends HTMLElement {
         </div>
         `;
         this.appendChild(template.content);
-        this.sort("date");
-        this.listenSort();
         this.listenOpenLightbox();
         this.listenCloseLightbox();
     }
@@ -49,53 +45,14 @@ export class MediaLightbox extends HTMLElement {
      */
     render(media) {
         this.querySelector("div").style.display = "block";
-        this.querySelector("img").src = media.src.slice(0,-8) + '.jpg';
-        this.querySelector("p").innerHTML = media.alt;
-    }
-
-    /**
-     * Sort the medias in terms of date, likes or title
-     * @param {sting} value - parameters of sorting
-     */
-    sort(value) {
-        switch (value) {
-            case "date":
-                this.medias.sort((m1, m2) => {
-                    let d1 = new Date(m1.date);
-                    let d2 = new Date(m2.date);
-                    return d2 - d1;
-                })
-                break;
-        
-            case "likes":
-                this.medias.sort((m1, m2) => m2.likes - m1.likes);
-                break;
-        
-            case "title":
-                this.medias.sort((m1, m2) => m1.title.toLowerCase().localeCompare(m2.title.toLowerCase()));
-                break;
-        
-            default:
-                console.log("Oops")
-                break;
-        }
-        this.listenOpenLightbox();
-    }
-
-    /**
-     * Listen to the <medias-select> component, and sort() when a sorting parameter is selected
-     */
-     listenSort() {
-        document.getElementById("sortMedias").addEventListener('change', select => {
-            this.sort(select.target.value);
-        })
+        this.querySelector("p").innerHTML = media.alt || media.childNodes[0].getAttribute('alt');
     }
 
     /**
      * 
      */
     listenOpenLightbox() {
-        document.querySelectorAll("article img").forEach(media => {
+        document.querySelectorAll("article img, article video").forEach(media => {
             media.addEventListener('click', () => {this.render(media)})
         })
     }
@@ -108,17 +65,6 @@ export class MediaLightbox extends HTMLElement {
             this.querySelector("div").style.display = "none";
         })
     }
-
-    /**
-     * From an ID return an array with all the photographer's medias from the JSON
-     * @param {integer} id - id of the photographer
-     * @returns {array} - the photographer's medias
-     */
-    getMedias(id) {
-        // return the photographer in the JSON whose ID match the requested ID
-        return data.media.filter(media => media.photographerId == id);
-    }
-
 }
 
 // Import data from the JSON

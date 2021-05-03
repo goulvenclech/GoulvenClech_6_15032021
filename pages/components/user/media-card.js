@@ -39,10 +39,10 @@ export class MediaCard extends HTMLElement {
     render() {
         if(this.mediaData.image) {
             this.querySelector("article").insertAdjacentHTML('afterbegin', 
-            '<img class="h-80 w-full object-cover rounded-md cursor-pointer" alt="' + this.mediaData.title +'" src="./images/' + this.photographerName.split(' ')[0] + '/' + this.mediaData.image.slice(0, -4) + '-min.jpg">');
+            '<img class="h-80 w-full object-cover rounded-md cursor-pointer" alt="' + this.mediaData.title +'" src="./images/' + this.photographerName.split(' ')[0] + '/' + this.mediaData.image.slice(0, -4) + '-min.jpg" tabindex="0">');
         }else if(this.mediaData.video) {
             this.querySelector("article").insertAdjacentHTML('afterbegin', 
-            '<video class="h-80 w-full object-cover rounded-md none cursor-pointer"><source alt="' + this.mediaData.title +'" src="./images/' + this.photographerName.split(' ')[0] + '/' + this.mediaData.video + '" type="video/mp4"></video>');
+            '<video class="h-80 w-full object-cover rounded-md none cursor-pointer" tabindex="0"><source alt="' + this.mediaData.title +'" src="./images/' + this.photographerName.split(' ')[0] + '/' + this.mediaData.video + '" type="video/mp4"></video>');
         }
     }
 

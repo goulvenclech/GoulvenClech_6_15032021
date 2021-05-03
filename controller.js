@@ -31,7 +31,6 @@ export class Router{
         window.history.pushState({url}, `${url}`, `${url}`);
         // Load content for this tab/page
         this.print(url);
-        console.log(this.pageFactory);
     }
     /**
      * This function clears the page, make the pageFactory create a new currentPage

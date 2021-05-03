@@ -1,7 +1,7 @@
 /**
  * A component that will present a photographer on his user page
  */
-export class PhotographerProfile extends HTMLElement {
+export class PhotographerInfos extends HTMLElement {
     constructor() {
         super();
         // get the photographer ID from url
@@ -29,7 +29,7 @@ export class PhotographerProfile extends HTMLElement {
                     `</p>
                     <photographer-tags id="` + this.id +`"><photographers-tags>
                 </div>
-                <div class="mr-6 lg:relative lg:left-0 lg:ml-0 left-1/2 -ml-24 fixed bottom-0">
+                <div class="mr-6 lg:relative lg:bottom-0 lg:left-0 lg:ml-0 left-1/2 -ml-24 fixed">
                     <a class="button my-4 mx-auto">
                         Contactez-moi
                     </a>
