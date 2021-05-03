@@ -79,6 +79,7 @@ export class mediaLightbox extends HTMLElement {
                 console.log("Oops")
                 break;
         }
+        this.listenOpenLightbox();
     }
 
     /**
