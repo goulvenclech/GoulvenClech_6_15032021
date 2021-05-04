@@ -12,8 +12,8 @@ export class FisheyeLogo extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-            <a href="/" class="block max-w-screen-xl mx-auto">
-                <img alt="Fisheye logo" class="h-12"
+            <a href="/" class="inlineblock">
+                <img alt="Fisheye logo" class="h-12 lg:mr-12"
                 src="` + logo +  `" ></img>
             </a>
         `;

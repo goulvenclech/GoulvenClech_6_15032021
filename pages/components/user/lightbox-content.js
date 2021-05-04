@@ -32,9 +32,8 @@ export class LightboxContent extends HTMLElement {
             `" src="` + media.src.slice(0,-8) + 
             `.jpg"></img>`)
         }else {
-            this.insertAdjacentHTML('afterbegin', `<video class="self-center" autoplay controls loop>
-            <source alt="` + media.alt +
-            `" src="` + media.childNodes[0].src +`" type="video/mp4">
+            this.insertAdjacentHTML('afterbegin', `<video class="self-center" alt="` + media.alt + `" autoplay controls loop>
+            <source src="` + media.childNodes[0].src +`" type="video/mp4">
             </video>`)
         }
     }

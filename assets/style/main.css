@@ -8,7 +8,7 @@
 */
 @layer base {
     body {
-        @apply p-12;
+        @apply px-4 py-8 md:p-12;
     }
 
     h2, h3 {
@@ -37,7 +37,7 @@
 }
 
 .tag {
-    @apply px-2 py-1 mr-1 border-solid border border-gray-300 rounded-full duration-200 text-primary text-sm font-medium;
+    @apply px-2 py-1 mr-1 border-solid leading-8 border border-gray-300 rounded-full duration-200 text-primary text-sm font-medium;
 
     &:hover, &.current:hover {
         @apply border-secondary bg-secondary text-white;

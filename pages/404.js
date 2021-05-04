@@ -12,7 +12,9 @@
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-         <fisheye-logo></fisheye-logo>
+            <div class="max-w-screen-xl w-full h-20 mx-auto mb-8">
+                <fisheye-logo></fisheye-logo>
+            </div>
             <main id="content" class="text-center">
                 <h3>
                     Erreur 404 😭

@@ -38,6 +38,7 @@ export class MediaLightbox extends HTMLElement {
         this.appendChild(template.content);
         this.listenOpenLightbox();
         this.listenCloseLightbox();
+        this.listenSort()
     }
 
     /**
@@ -54,6 +55,15 @@ export class MediaLightbox extends HTMLElement {
     listenOpenLightbox() {
         document.querySelectorAll("article img, article video").forEach(media => {
             media.addEventListener('click', () => {this.render(media)})
+        })
+    }
+
+    /**
+     * 
+     */
+    listenSort() {
+        document.getElementById("sortMedias").addEventListener('change', () => {
+            this.listenOpenLightbox();
         })
     }
 
