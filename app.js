@@ -50,6 +50,8 @@ import {MediaLightbox} from './pages/components/user/media-lightbox.js'
 window.customElements.define('media-lightbox', MediaLightbox);
 import {MediasSelect} from './pages/components/user/medias-select.js'
 window.customElements.define('medias-select', MediasSelect);
+import {PhotographerInfos} from './pages/components/user/photographer-infos.js'
+window.customElements.define('photographer-infos', PhotographerInfos);
 import {PhotographerMedias} from './pages/components/user/photographer-medias.js'
 window.customElements.define('photographer-medias', PhotographerMedias);
 import {PhotographerProfile} from './pages/components/user/photographer-profile.js'

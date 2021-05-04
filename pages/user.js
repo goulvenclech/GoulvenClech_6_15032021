@@ -20,6 +20,7 @@ export class UserPage extends HTMLElement {
             <medias-select></medias-select>
             <photographer-medias></photographer-medias>
             <media-lightbox></media-lightbox>
+            <photographer-infos></photographer-infos>
         </main>
     `;
         this.appendChild(template.content);

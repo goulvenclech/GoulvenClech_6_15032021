@@ -10,8 +10,7 @@ export class MediaCard extends HTMLElement {
         // get the photographer name from media ID
         this.photographerName = this.getPhotographerName(this.mediaData);
         // 
-        this.title = "";
-        this.likes = 0;
+        this.likes = this.mediaData.likes;
     }
  
     /**
@@ -24,13 +23,14 @@ export class MediaCard extends HTMLElement {
                 <div class="flex gap py-2">
                     <p class="text-primary text-xl flex-grow">` + this.mediaData.title + `</p>
                     <button class="text-primary text-xl text-right">`
-                         + this.mediaData.likes + 
+                         + this.likes + 
                     ` ❤️</button>
                 </div>
             </article>
         `;
         this.appendChild(template.content);
         this.render();
+        this.likeButton();
     }
 
     /**
@@ -44,6 +44,13 @@ export class MediaCard extends HTMLElement {
             this.querySelector("article").insertAdjacentHTML('afterbegin', 
             '<video class="h-80 w-full object-cover rounded-md none cursor-pointer" tabindex="0"><source alt="' + this.mediaData.title +'" src="./images/' + this.photographerName.split(' ')[0] + '/' + this.mediaData.video + '" type="video/mp4"></video>');
         }
+    }
+
+    likeButton() {
+        this.querySelector("button").addEventListener('click', () => {
+            this.likes++;
+            this.querySelector("button").innerHTML = this.likes + " ❤️";
+        })
     }
 
     

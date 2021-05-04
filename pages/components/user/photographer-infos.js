@@ -8,6 +8,8 @@ export class PhotographerInfos extends HTMLElement {
         this.id = window.history.state.url.slice(5);
         // get the photographer Data
         this.photographerData = this.getPhotographerData(this.id);
+        // 
+        this.totalLikes = 0;
     }
  
     /**
@@ -16,31 +18,37 @@ export class PhotographerInfos extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-        <section class="bg-gray-100 rounded-md py-8 px-10 mt-10 flex">
-                <div class="mr-6">
-                    <h2>`
-                        + this.photographerData.name +
-                    `</h2>
-                    <h3>`
-                        + this.photographerData.city + `, ` + this.photographerData.country +
-                    `</h3>
-                    <p>`
-                        + this.photographerData.tagline +
-                    `</p>
-                    <photographer-tags id="` + this.id +`"><photographers-tags>
-                </div>
-                <div class="mr-6 lg:relative lg:bottom-0 lg:left-0 lg:ml-0 left-1/2 -ml-24 fixed">
-                    <a class="button my-4 mx-auto">
-                        Contactez-moi
-                    </a>
-                </div>
-                <div class="flex-grow text-right">
-                    <img class="h-48 w-48 rounded-full object-cover inline-block"
-                    src="./images/portraits/` + this.photographerData.portrait + `"></img>
-                </div
+            <aside class="bg-secondary hidden lg:block fixed bottom-0 right-12 p-4">
+                <p class="text-white"></p>
             </section>
         `;
         this.appendChild(template.content);
+        this.render();
+        this.listenNewLikes();
+    }
+
+    /**
+     * 
+     */
+    render() {
+        this.totalLikes = 0;
+        document.querySelectorAll("article button").forEach(likeBtn => {
+            console.log(likeBtn.innerHTML.split(" ")[0]);
+            this.totalLikes = this.totalLikes + parseInt(likeBtn.innerHTML.split(" ")[0]);
+        })
+        this.querySelector("aside p").innerHTML = this.totalLikes + " ❤️";
+    }
+
+    /**
+     * 
+     */
+    listenNewLikes() {
+        document.querySelectorAll("article button").forEach(likeBtn => {
+            likeBtn.addEventListener('click', () => {
+                this.totalLikes++;
+                this.querySelector("aside p").innerHTML = this.totalLikes + " ❤️";
+            })
+        })
     }
 
     /**
