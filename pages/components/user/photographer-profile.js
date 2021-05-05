@@ -36,7 +36,8 @@ export class PhotographerProfile extends HTMLElement {
                 </div>
                 <div class="flex-grow text-right">
                     <img class="h-48 w-48 rounded-full object-cover inline-block"
-                    src="./images/portraits/` + this.photographerData.portrait + `"></img>
+                    src="./images/portraits/` + this.photographerData.portrait + `"
+                    alt=""` + this.photographerData.name + `></img>
                 </div
             </section>
         `;

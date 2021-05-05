@@ -96,7 +96,7 @@ export class Router{
                 document.body.insertAdjacentHTML('afterbegin', '<user-page id="' + this.url.slice(5) + '"></user-page>')
             }
         }
-        this.console404 = function() {
+        this.error404 = function() {
             this.print = function () {
                 document.body.insertAdjacentHTML('afterbegin', '<error404-page></error404-page>')
             }

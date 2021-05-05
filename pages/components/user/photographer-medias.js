@@ -60,7 +60,7 @@ export class PhotographerMedias extends HTMLElement {
                 break;
         
             default:
-                console.log("Oops")
+                console.error("Oops");
                 break;
         }
     }

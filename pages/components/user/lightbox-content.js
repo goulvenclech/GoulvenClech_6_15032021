@@ -6,6 +6,8 @@ export class LightboxContent extends HTMLElement {
         super();
         // get the photographer ID from url
         this.id = window.history.state.url.slice(5);
+        // get the photographer name from the photographerID
+        this.photographerName = this.getPhotographerName(this.id);
         // get the photographer medias
         this.medias = this.getMedias(this.id);
     }
@@ -33,9 +35,12 @@ export class LightboxContent extends HTMLElement {
             `.jpg"></img>`)
         }else {
             this.insertAdjacentHTML('afterbegin', `<video class="self-center" alt="` + media.alt + `" autoplay controls loop>
-            <source src="` + media.childNodes[0].src +`" type="video/mp4">
+            <source src="` + (media.video || media.childNodes[0].src) +`" type="video/mp4">
             </video>`)
         }
+        document.querySelector(".titleMediaLightbox").innerHTML = media.alt || media.childNodes[0].getAttribute('alt');
+        this.listenPreviousMedia(media);
+        this.listenNextMedia(media);
     }
 
     /**
@@ -61,7 +66,7 @@ export class LightboxContent extends HTMLElement {
                 break;
         
             default:
-                console.log("Oops")
+                console.error("Oops");
                 break;
         }
         this.listenOpenLightbox();
@@ -86,6 +91,21 @@ export class LightboxContent extends HTMLElement {
     }
 
     /**
+     * 
+     */
+    listenPreviousMedia(media) {
+        document.querySelector(".previousMediaLightbox").addEventListener('click', () => {
+            return this.render(this.getPreviousMedia(media));
+        })
+    }
+
+    listenNextMedia(media) {
+        document.querySelector(".nextMediaLightbox").addEventListener('click', () => {
+            return this.render(this.getNextMedia(media));
+        })
+    }
+
+    /**
      * From an ID return an array with all the photographer's medias from the JSON
      * @param {integer} id - id of the photographer
      * @returns {array} - the photographer's medias
@@ -93,6 +113,50 @@ export class LightboxContent extends HTMLElement {
     getMedias(id) {
         // return the photographer in the JSON whose ID match the requested ID
         return data.media.filter(media => media.photographerId == id);
+    }
+
+    /**
+     * 
+     */
+    getPreviousMedia(media) {
+        let previousMediaData = this.medias[(this.medias.indexOf(this.medias.find(mda => mda.id == media.id))-1)];
+        let previousMedia = {
+            id: previousMediaData.id,
+            alt: previousMediaData.title 
+        }
+        if(previousMediaData.image) {
+            previousMedia.src = "./images/" + this.photographerName.split(' ')[0] + "/" + previousMediaData.image.slice(0, -4) + "-min.jpg";
+        }else {
+            previousMedia.video = "./images/" + this.photographerName.split(' ')[0] + "/" + previousMediaData.video; 
+        }
+        return previousMedia;
+    }
+
+    /**
+     * 
+     */
+    getNextMedia(media) {
+        let nextMediaData = this.medias[(this.medias.indexOf(this.medias.find(mda => mda.id == media.id))+1)];
+        let nextMedia = {
+            id: nextMediaData.id,
+            alt: nextMediaData.title 
+        };
+        if(previousMediaData.image) {
+            previousMedia.src = "./images/" + this.photographerName.split(' ')[0] + "/" + previousMediaData.image.slice(0, -4) + "-min.jpg";
+        }else {
+            previousMedia.video = "./images/" + this.photographerName.split(' ')[0] + "/" + previousMediaData.video; 
+        }
+        return nextMedia;
+    }
+
+    /**
+     * Return a string with the photographer's name from the JSON
+     * Require this.id to be correct
+     * @returns {string} - the photographer's name
+     */
+    getPhotographerName(id) {
+        // return the photographer in the JSON whose ID match the photographer's ID in the media's data
+        return data.photographers.find(photographer => photographer.id == id).name;
     }
 
 }

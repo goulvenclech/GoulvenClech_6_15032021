@@ -18,17 +18,17 @@ export class MediaLightbox extends HTMLElement {
             <section class="lightbox flex">
 
                 <div class="flex-grow flex flex-row-reverse">
-                    <button class="w-14 text-5xl text-bold text-primary"><</button>
+                    <button class="previousMediaLightbox w-14 text-5xl text-bold text-primary"><</button>
                 </div>
 
                 <div class="flex-shrink">
                     <lightbox-content></lightbox-content>
-                    <p class="text-primary text-xl my-2"></p>
+                    <p class="titleMediaLightbox text-primary text-xl my-2"></p>
                 </div>
 
                 <div class="flex-grow flex flex-row">
                     <button class="closeLightbox absolute w-14 text-bold text-5xl text-primary">x</button>
-                    <button class="w-14 text-5xl text-bold text-primary">></button>
+                    <button class="nextMediaLightbox w-14 text-5xl text-bold text-primary">></button>
                 </div>
 
             
@@ -46,17 +46,8 @@ export class MediaLightbox extends HTMLElement {
      */
     render(media) {
         this.querySelector("div").style.display = "block";
-        this.querySelector("p").innerHTML = media.alt || media.childNodes[0].getAttribute('alt');
     }
 
-    /**
-     * 
-     */
-    listenOpenLightbox() {
-        document.querySelectorAll("article img, article video").forEach(media => {
-            media.addEventListener('click', () => {this.render(media)})
-        })
-    }
 
     /**
      * 
@@ -64,6 +55,15 @@ export class MediaLightbox extends HTMLElement {
     listenSort() {
         document.getElementById("sortMedias").addEventListener('change', () => {
             this.listenOpenLightbox();
+        })
+    }
+    
+    /**
+     * 
+     */
+    listenOpenLightbox() {
+        document.querySelectorAll("article img, article video").forEach(media => {
+            media.addEventListener('click', () => {this.render(media)})
         })
     }
 

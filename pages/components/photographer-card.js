@@ -19,7 +19,8 @@ export class PhotographerCard extends HTMLElement {
             <a href="/user` + this.id + `"
               class="block mx-auto max-w-md z-10">
                 <img class="h-48 w-48 mx-auto rounded-full object-cover"
-                  src="./images/portraits/` + this.photographerData.portrait + `"></img>
+                  src="./images/portraits/` + this.photographerData.portrait + `"
+                  alt="` + this.photographerData.name + `"></img>
                 <h2 class="text-4xl leading-snug text-center mb-0">`
                     + this.photographerData.name +
                 `</h2>
