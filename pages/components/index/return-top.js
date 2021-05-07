@@ -12,7 +12,7 @@ export class ReturnTop extends HTMLElement {
     connectedCallback() {
         const template = document.createElement('template');
         template.innerHTML = `
-            <div class="fixed top-8 left-0 w-screen h-screen">
+            <div class="hidden fixed top-8 left-0 w-screen h-screen">
                 <button class="hidden mx-auto text-xl bg-tertiary rounded-md py-1 px-2">
                     Passer au contenu
                 </button>
