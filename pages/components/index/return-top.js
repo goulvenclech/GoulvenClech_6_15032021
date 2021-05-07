@@ -12,8 +12,8 @@ export class ReturnTop extends HTMLElement {
     connectedCallback() {
         const template = document.createElement('template');
         template.innerHTML = `
-            <div class="hidden fixed top-8 left-0 w-screen h-screen">
-                <button class="hidden mx-auto text-xl bg-tertiary rounded-md py-1 px-2">
+            <div class="hidden fixed top-8 left-0 w-screen">
+                <button class="block mx-auto text-xl bg-tertiary rounded-md py-1 px-2">
                     Passer au contenu
                 </button>
             <div>
@@ -29,9 +29,9 @@ export class ReturnTop extends HTMLElement {
     render() {
         window.addEventListener('scroll', () => {
             if(window.scrollY > 100) {
-                this.querySelector("button").style.display = "block";
+                this.querySelector("div").style.display = "block";
             }else {
-                this.querySelector("button").style.display = "none";
+                this.querySelector("div").style.display = "none";
             }
         })
     }
