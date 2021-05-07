@@ -35,6 +35,8 @@ window.customElements.define('photographer-card', PhotographerCard);
 // Import all the pages/components/index components
 import {FeaturedPhotographers} from './pages/components/index/featured-photographers.js'
 window.customElements.define('featured-photographers', FeaturedPhotographers);
+import {ReturnTop} from './pages/components/index/return-top.js'
+window.customElements.define('return-top', ReturnTop);
 
 // Import all the pages/components/tag components
 import {TaggedPhotographers} from './pages/components/tag/tagged-photographers.js'

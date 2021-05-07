@@ -23,6 +23,7 @@ export class IndexPage extends HTMLElement {
             </div>
             <main id="content" class="max-w-screen-xl w-full mx-auto">
                 <featured-photographers></featured-photographers>
+                <return-top></return-top>
             </main>
             
         `;
