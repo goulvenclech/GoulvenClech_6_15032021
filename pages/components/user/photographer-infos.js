@@ -18,8 +18,8 @@ export class PhotographerInfos extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-            <aside class="bg-secondary rounded-t-md hidden lg:block fixed bottom-0 right-48 p-4">
-                <p class="text-white">
+            <aside class="bg-tertiary rounded-t-md hidden lg:block fixed bottom-0 right-48 p-4">
+                <p class="text-black">
                     <span class="mr-8"></span>`
                         + this.photographerPrice + 
                 `€ /jour</p>

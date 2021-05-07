@@ -140,11 +140,11 @@ export class LightboxContent extends HTMLElement {
         let nextMedia = {
             id: nextMediaData.id,
             alt: nextMediaData.title 
-        };
-        if(previousMediaData.image) {
-            previousMedia.src = "./images/" + this.photographerName.split(' ')[0] + "/" + previousMediaData.image.slice(0, -4) + "-min.jpg";
+        }
+        if(nextMediaData.image) {
+            nextMedia.src = "./images/" + this.photographerName.split(' ')[0] + "/" + nextMediaData.image.slice(0, -4) + "-min.jpg";
         }else {
-            previousMedia.video = "./images/" + this.photographerName.split(' ')[0] + "/" + previousMediaData.video; 
+            nextMedia.video = "./images/" + this.photographerName.split(' ')[0] + "/" + nextMediaData.video; 
         }
         return nextMedia;
     }

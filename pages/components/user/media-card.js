@@ -6,7 +6,7 @@ export class MediaCard extends HTMLElement {
         // an ID attribute is needed
         super();
         // get the media Data
-        this.mediaData = this.getMediaData(this.id);
+        this.mediaData = this.getMediaData(this.id.slice(3));
         // get the photographer name from media ID
         this.photographerName = this.getPhotographerName(this.mediaData);
         // 

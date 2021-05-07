@@ -41,7 +41,8 @@ import {TaggedPhotographers} from './pages/components/tag/tagged-photographers.j
 window.customElements.define('tagged-photographers', TaggedPhotographers);
 
 // Import all the pages/components/user components
-
+import {ContactModal} from './pages/components/user/contact-modal.js'
+window.customElements.define('contact-modal', ContactModal);
 import {LightboxContent} from './pages/components/user/lightbox-content.js'
 window.customElements.define('lightbox-content', LightboxContent);
 import {MediaCard} from './pages/components/user/media-card.js'

@@ -33,7 +33,7 @@ export class PhotographerMedias extends HTMLElement {
         this.querySelector("section").innerHTML = "";
         this.medias.forEach(media => {
             this.querySelector("section").insertAdjacentHTML('beforeEnd', 
-            '<media-card id="' + media.id + '"></media-card>');
+            '<media-card id="num' + media.id + '"></media-card>');
         });
     }
 

@@ -12,7 +12,7 @@ export class UserPage extends HTMLElement {
     connectedCallback () {
         const template = document.createElement('template');
         template.innerHTML = `
-        <div class="max-w-screen-xl w-full h-20 mx-auto mb-8">
+        <div class="max-w-screen-xl w-full h-10 lg:h-20 mx-auto mb-8">
             <fisheye-logo></fisheye-logo>
         </div>
         <main id="content" class="max-w-screen-xl w-full mx-auto">
@@ -21,6 +21,7 @@ export class UserPage extends HTMLElement {
             <photographer-medias></photographer-medias>
             <photographer-infos></photographer-infos>
             <media-lightbox></media-lightbox>
+            <contact-modal></contact-modal>
         </main>
     `;
         this.appendChild(template.content);
