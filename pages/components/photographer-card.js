@@ -17,7 +17,8 @@ export class PhotographerCard extends HTMLElement {
         const template = document.createElement('template');
         template.innerHTML = `
             <a href="/user` + this.id + `"
-              class="block mx-auto max-w-md z-10">
+              class="block mx-auto max-w-md z-10"
+              title="` + this.photographerData.name + `">
                 <img class="h-48 w-48 mx-auto rounded-full object-cover"
                   src="./images/portraits/` + this.photographerData.portrait + `"
                   alt="` + this.photographerData.name + `"></img>

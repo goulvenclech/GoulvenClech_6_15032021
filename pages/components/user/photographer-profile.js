@@ -18,19 +18,20 @@ export class PhotographerProfile extends HTMLElement {
         template.innerHTML = `
         <section class="bg-gray-100 rounded-md py-8 px-10 mt-10 flex">
                 <div class="mr-6">
-                    <h2>`
+                    <h1 class="text-secondary text-6xl my-4">`
                         + this.photographerData.name +
-                    `</h2>
-                    <h3>`
+                    `</h1>
+                    <h2 class="text-font-2 text-2xl">`
                         + this.photographerData.city + `, ` + this.photographerData.country +
-                    `</h3>
+                    `</h2>
                     <p>`
                         + this.photographerData.tagline +
                     `</p>
                     <photographer-tags id="` + this.id +`"><photographers-tags>
                 </div>
                 <div class="mr-6 lg:relative lg:left-0 lg:ml-0 left-1/2 -ml-24 fixed bottom-0">
-                    <a class="contactModal button my-4 mx-auto">
+                    <a class="contactModal button my-4 mx-auto"
+                        title="Contactez-moi">
                         Contactez-moi
                     </a>
                 </div>

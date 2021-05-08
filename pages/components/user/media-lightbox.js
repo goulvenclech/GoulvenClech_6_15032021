@@ -15,10 +15,13 @@ export class MediaLightbox extends HTMLElement {
         const template = document.createElement('template');
         template.innerHTML = `
         <div class="top-0 left-0 hidden fixed bg-white h-screen w-screen">
-            <section class="lightbox flex">
+            <section class="lightbox flex"
+                aria-label="Vue de l'image en grand">
 
                 <div class="flex-grow flex flex-row-reverse">
-                    <button class="previousMediaLightbox w-14 text-5xl text-bold text-primary"><</button>
+                    <button class="previousMediaLightbox w-14 text-5xl text-bold text-primary" title="Image précédente">
+                        <
+                    </button>
                 </div>
 
                 <div class="flex-shrink">
@@ -27,8 +30,12 @@ export class MediaLightbox extends HTMLElement {
                 </div>
 
                 <div class="flex-grow flex flex-row">
-                    <button class="closeLightbox absolute w-14 text-bold text-5xl text-primary">x</button>
-                    <button class="nextMediaLightbox w-14 text-5xl text-bold text-primary">></button>
+                    <button class="closeLightbox absolute w-14 text-bold text-5xl text-primary" title="Fermer la vue">
+                        x
+                    </button>
+                    <button class="nextMediaLightbox w-14 text-5xl text-bold text-primary" title="Image suivante">
+                        >
+                    </button>
                 </div>
 
             

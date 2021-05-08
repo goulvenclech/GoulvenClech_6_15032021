@@ -22,7 +22,8 @@ export class MediaCard extends HTMLElement {
             <article>
                 <div class="flex gap py-2">
                     <p class="text-primary text-xl flex-grow">` + this.mediaData.title + `</p>
-                    <button class="text-primary text-xl text-right">`
+                    <button class="text-primary text-xl text-right"
+                        aria-label="likes">`
                          + this.likes + 
                     ` ❤️</button>
                 </div>
@@ -46,6 +47,7 @@ export class MediaCard extends HTMLElement {
         }else if(this.mediaData.video) {
             this.querySelector("article").insertAdjacentHTML('afterbegin', 
             `<video class="h-80 w-full object-cover rounded-md none cursor-pointer"
+                title="` + this.mediaData.title +`"
                 id="` + this.mediaData.id + `"
                 tabindex="0"><source alt="` + this.mediaData.title + `" 
                 src="./images/` + this.photographerName.split(' ')[0] + `/` + this.mediaData.video + `" 
