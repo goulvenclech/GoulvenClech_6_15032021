@@ -79,6 +79,13 @@ export class LightboxContent extends HTMLElement {
         document.querySelectorAll("article img, article video").forEach(media => {
             media.addEventListener('click', () => {this.render(media)})
         })
+        document.querySelectorAll("article img, article video").forEach(media => {
+            media.addEventListener('keydown', event => {
+                if(event.key === 'Enter') {
+                    this.render(media)
+                }
+            })
+        })
     }
 
     /**
@@ -97,11 +104,23 @@ export class LightboxContent extends HTMLElement {
         document.querySelector(".previousMediaLightbox").addEventListener('click', () => {
             return this.render(this.getPreviousMedia(media));
         })
+        document.addEventListener('keydown', event => {
+            console.log(event.key)
+            if( event.key === 'ArrowLeft') {
+                return this.render(this.getPreviousMedia(media));
+            }
+        })
     }
 
     listenNextMedia(media) {
         document.querySelector(".nextMediaLightbox").addEventListener('click', () => {
             return this.render(this.getNextMedia(media));
+        })
+        document.addEventListener('keydown', event => {
+            console.log(event.key)
+            if( event.key === 'ArrowRight') {
+                return this.render(this.getNextMedia(media));
+            }
         })
     }
 

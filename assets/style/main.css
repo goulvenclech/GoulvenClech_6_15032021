@@ -36,6 +36,10 @@
     }
 }
 
+select {
+    @apply mt-12 inline-block bg-primary rounded-md py-4 font-semibold text-base text-white;
+}
+
 .tag {
     @apply px-2 py-1 mr-1 border-solid leading-8 border border-gray-300 rounded-full duration-200 text-primary text-sm font-medium;
 

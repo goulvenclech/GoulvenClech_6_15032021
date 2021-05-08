@@ -44,8 +44,9 @@ export class MediaLightbox extends HTMLElement {
     /**
      *  
      */
-    render(media) {
+    render() {
         this.querySelector("div").style.display = "block";
+        document.querySelector("main").inert = true;
     }
 
 
@@ -63,7 +64,14 @@ export class MediaLightbox extends HTMLElement {
      */
     listenOpenLightbox() {
         document.querySelectorAll("article img, article video").forEach(media => {
-            media.addEventListener('click', () => {this.render(media)})
+            media.addEventListener('click', () => {this.render()})
+        })
+        document.querySelectorAll("article img, article video").forEach(media => {
+            media.addEventListener('keydown', event => {
+                if(event.key === 'Enter') {
+                    this.render()
+                }
+            })
         })
     }
 
@@ -73,6 +81,13 @@ export class MediaLightbox extends HTMLElement {
     listenCloseLightbox() {
         this.querySelector(".closeLightbox").addEventListener('click', () => {
             this.querySelector("div").style.display = "none";
+            document.querySelector("main").inert = false;
+        })
+        document.addEventListener('keydown', event => {
+            if( event.key === 'Escape') {
+                this.querySelector("div").style.display = "none";
+                document.querySelector("main").inert = false;
+            }
         })
     }
 }
