@@ -10,6 +10,9 @@ export class LightboxContent extends HTMLElement {
         this.photographerName = this.getPhotographerName(this.id);
         // get the photographer medias
         this.medias = this.getMedias(this.id);
+        // current media displayed
+        this.currentMedia;
+
     }
  
     /**
@@ -21,6 +24,8 @@ export class LightboxContent extends HTMLElement {
         this.appendChild(template.content);
         this.sort("date");
         this.listenSort();
+        this.listenPreviousMedia();
+        this.listenNextMedia();
     }
 
     /**
@@ -39,8 +44,8 @@ export class LightboxContent extends HTMLElement {
             </video>`)
         }
         document.querySelector(".titleMediaLightbox").innerHTML = media.alt || media.childNodes[0].getAttribute('alt');
-        this.listenPreviousMedia(media);
-        this.listenNextMedia(media);
+        this.currentMedia = media;
+
     }
 
     /**
@@ -100,26 +105,24 @@ export class LightboxContent extends HTMLElement {
     /**
      * 
      */
-    listenPreviousMedia(media) {
+    listenPreviousMedia() {
         document.querySelector(".previousMediaLightbox").addEventListener('click', () => {
-            return this.render(this.getPreviousMedia(media));
+            this.render(this.getPreviousMedia(this.currentMedia));
         })
         document.addEventListener('keydown', event => {
-            console.log(event.key)
             if( event.key === 'ArrowLeft') {
-                return this.render(this.getPreviousMedia(media));
+                this.render(this.getPreviousMedia(this.currentMedia));
             }
         })
     }
 
-    listenNextMedia(media) {
+    listenNextMedia() {
         document.querySelector(".nextMediaLightbox").addEventListener('click', () => {
-            return this.render(this.getNextMedia(media));
+            this.render(this.getNextMedia(this.currentMedia));
         })
         document.addEventListener('keydown', event => {
-            console.log(event.key)
             if( event.key === 'ArrowRight') {
-                return this.render(this.getNextMedia(media));
+                this.render(this.getNextMedia(this.currentMedia));
             }
         })
     }
@@ -138,7 +141,14 @@ export class LightboxContent extends HTMLElement {
      * 
      */
     getPreviousMedia(media) {
-        let previousMediaData = this.medias[(this.medias.indexOf(this.medias.find(mda => mda.id == media.id))-1)];
+        let mediaId = this.medias.indexOf(this.medias.find(mda => mda.id == media.id));
+        let previousMediaData;
+        if(mediaId>=1) {
+            previousMediaData = this.medias[mediaId-1];
+        }else {
+            previousMediaData = this.medias[this.medias.length-1];
+        }
+        console.log(this.medias.indexOf(previousMediaData));
         let previousMedia = {
             id: previousMediaData.id,
             alt: previousMediaData.title 
@@ -155,7 +165,14 @@ export class LightboxContent extends HTMLElement {
      * 
      */
     getNextMedia(media) {
-        let nextMediaData = this.medias[(this.medias.indexOf(this.medias.find(mda => mda.id == media.id))+1)];
+        let mediaId = this.medias.indexOf(this.medias.find(mda => mda.id == media.id));
+        let nextMediaData;
+        if(mediaId<(this.medias.length-1)) {
+            nextMediaData = this.medias[mediaId+1];
+        }else {
+            nextMediaData = this.medias[0];
+        }
+        console.log(this.medias.indexOf(nextMediaData));
         let nextMedia = {
             id: nextMediaData.id,
             alt: nextMediaData.title 

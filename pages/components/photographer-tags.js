@@ -26,7 +26,11 @@ export class PhotographerTags extends HTMLElement {
     render() {
         this.tags.forEach(tag => {
             this.querySelector("div").insertAdjacentHTML('beforeEnd',
-            '<a class="tag" href="/tag-' + tag + '">#' + tag +'</a>');
+            `<a class="tag" href="/tag-` + tag + `">
+                <span class="sr-only">`
+                    + tag +
+                `</span>
+                #` + tag +`</a>`);
         });
         this.activeCurrent();
     }

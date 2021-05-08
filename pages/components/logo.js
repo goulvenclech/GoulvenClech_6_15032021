@@ -13,7 +13,7 @@ export class FisheyeLogo extends HTMLElement {
         const template = document.createElement('template');
         template.innerHTML = `
             <a href="/" class="inlineblock">
-                <img alt="Fisheye logo" class="h-12 lg:mr-12"
+                <img alt="Fisheye page d'accueil" class="h-12 lg:mr-12"
                 src="` + logo +  `" ></img>
             </a>
         `;
