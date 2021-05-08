@@ -8,7 +8,7 @@ export class PhotographerInfos extends HTMLElement {
         this.id = window.history.state.url.slice(5);
         // get the photographer prince
         this.photographerPrice = this.getPhotographerPrice(this.id);
-        // 
+        // will registers the photographer's likes
         this.totalLikes = 0;
     }
  
@@ -32,7 +32,7 @@ export class PhotographerInfos extends HTMLElement {
     }
 
     /**
-     * 
+     * Count all the photographer's likes on envery medias then print it
      */
     render() {
         this.totalLikes = 0;
@@ -43,7 +43,7 @@ export class PhotographerInfos extends HTMLElement {
     }
 
     /**
-     * 
+     * Listen for new likes on the photographer's medias, increment the totallikes on click
      */
     listenNewLikes() {
         document.querySelectorAll("article button").forEach(likeBtn => {
@@ -55,7 +55,7 @@ export class PhotographerInfos extends HTMLElement {
     }
 
     /**
-     * 
+     * Listen if the photographer's medias are sort(), if so then render() again the component
      */
     listenSort() {
         document.getElementById("sortMedias").addEventListener('change', () => {

@@ -148,7 +148,6 @@ export class LightboxContent extends HTMLElement {
         }else {
             previousMediaData = this.medias[this.medias.length-1];
         }
-        console.log(this.medias.indexOf(previousMediaData));
         let previousMedia = {
             id: previousMediaData.id,
             alt: previousMediaData.title 
@@ -172,7 +171,6 @@ export class LightboxContent extends HTMLElement {
         }else {
             nextMediaData = this.medias[0];
         }
-        console.log(this.medias.indexOf(nextMediaData));
         let nextMedia = {
             id: nextMediaData.id,
             alt: nextMediaData.title 

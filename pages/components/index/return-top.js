@@ -1,5 +1,6 @@
 /**
- * 
+ * A button who appears when the user scrool, 
+ * click on it and you're back to the top !
  */
 export class ReturnTop extends HTMLElement {
     constructor() {
@@ -7,7 +8,7 @@ export class ReturnTop extends HTMLElement {
     } 
     
     /**
-     * Insert an empty template, then call render()
+     * Insert an empty template, then call render() & listClick()
      */
     connectedCallback() {
         const template = document.createElement('template');
@@ -24,7 +25,7 @@ export class ReturnTop extends HTMLElement {
     }
     
     /**
-     * 
+     * Make the button appear only when the user scroll a bit
      */
     render() {
         window.addEventListener('scroll', () => {
@@ -37,7 +38,7 @@ export class ReturnTop extends HTMLElement {
     }
 
     /**
-     * 
+     * When the user click on the button, he's back to the top of the document
      */
     listenClick() {
         this.querySelector("button").addEventListener('click', () => {

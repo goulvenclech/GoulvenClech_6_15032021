@@ -1,5 +1,5 @@
 /**
- * 
+ * A modal with a contact form, used to contact a photographer
  */
 export class ContactModal extends HTMLElement {
     constructor() {
@@ -9,7 +9,7 @@ export class ContactModal extends HTMLElement {
     }
  
     /**
-     * Insert an template, then call short() & render() & listenSort
+     * Insert a form template, then call listenOpenModal() & ListenCloseModal() & confirmForm()
      */
     connectedCallback () {
         const template = document.createElement('template');
@@ -56,24 +56,18 @@ export class ContactModal extends HTMLElement {
         this.listenCloseModal();
         this.confirmForm();
     }
-
-    /**
-     *  
-     */
-    render() {
-        this.querySelector("div").style.display = "block";
-    }
     
     /**
-     * 
+     * Listen the modal button and make the modal appears on click 
      */
     listenOpenModal() {
-        document.querySelector(".contactModal").addEventListener('click', 
-            () => {this.render()});
+        document.querySelector(".contactModal").addEventListener('click', () => {
+            this.querySelector("div").style.display = "block";
+        })
     }
 
     /**
-     * 
+     * Listen the close button in the modal, and close the modal on click
      */
     listenCloseModal() {
         this.querySelector(".closeModal").addEventListener('click', () => {
@@ -82,22 +76,25 @@ export class ContactModal extends HTMLElement {
     }
 
     /**
-     * 
+     * Listen for confirm, on click print the message and close the modal
      */
     confirmForm() {
         this.querySelector(".confirmContact").addEventListener('click', confirm => {
             // prevent the link for reloading the page
             confirm.preventDefault();
+
+            // create an object with all the message's data
             let message = {};
             let inputs = this.querySelectorAll("input");
-
             message.author = inputs[0].value + " " + inputs[1].value;
             message.email = inputs[2].value;
             message.date = new Date().toLocaleDateString();
             message.content = this.querySelector("textarea").value;
 
+            //  print the message on the console
             console.table(message);
 
+            // reset and close the modal
             inputs.forEach(input => {input.value = ""});
             this.querySelector("textarea").value = "";
             this.querySelector("div").style.display = "none";
@@ -105,5 +102,3 @@ export class ContactModal extends HTMLElement {
     }
 }
 
-// Import data from the JSON
-import data from '../../../assets/data/FishEyeDataFR.json'

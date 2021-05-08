@@ -8,7 +8,7 @@ Pour ce projet, je tente de réaliser une [Single Page Application](https://en.w
 
 Tout le site est donc une seule page HTML, Javascript gère complétement la navigation de l'utilisateur en chargeant le contenu à mesure de sa navigation. Je m'appuie pour cela énormément sur les [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) qui vont constituer tout les éléments du site, chacun encapsulant à la fois son template CSS, son style Tailwind CSS et sa logique Javascript (les éléments sont dynamique en fonction des requêtes de l'utilisateur mais aussi de la database représentée par un JSON).
 
-Enfin, un soin particulier a été apporté à l'accesibilité du site (particulièrement la navigation au clavier et au lecteur d'écran) ainsi qu'à la documentation du code (inspiré par [JSDoc 3](https://jsdoc.app/)).
+Enfin, un soin particulier a été apporté à l'accesibilité du site (particulièrement la navigation au clavier et aux lecteurs d'écran) ainsi qu'à la documentation du code (inspiré par [JSDoc 3](https://jsdoc.app/)).
 
 Adresse du répo : https://github.com/GoulvenC/GoulvenClech_6_15032021
 
@@ -59,7 +59,8 @@ Le projet FishEye est une projet d'application web entièrement développé en J
 
 ## Architectures des classes
 ![](/SCHEMA.png)
-*[Work in progress]*
+Architecture du projet. Pas très lisible, mais ça m'a aidé à garder l'idée générale en tête.
+Chaque élément de la vue est un WebComponent.
 
 ## License 
 
