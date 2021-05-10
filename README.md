@@ -6,7 +6,7 @@ FishEye est un site web qui permet aux photographes indépendants de présenter 
 
 Pour ce projet, je tente de réaliser une [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application) avec Javascript (vanilla) dans un paradigme [Orientée Prototype](https://en.wikipedia.org/wiki/Prototype-based_programming) ( dont je ne suis pas fan, mais cette formation est l'occasion d'expérimenter et d'apprendre).
 
-Tout le site est donc une seule page HTML, Javascript gère complétement la navigation de l'utilisateur en chargeant le contenu à mesure de sa navigation. Je m'appuie pour cela énormément sur les [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) qui vont constituer tout les éléments du site, chacun encapsulant à la fois son template CSS, son style Tailwind CSS et sa logique Javascript (les éléments sont dynamique en fonction des requêtes de l'utilisateur mais aussi de la database représentée par un JSON).
+Tout le site est donc une seule page HTML, Javascript gère complétement la navigation de l'utilisateur en chargeant le contenu à mesure de sa navigation. Je m'appuie pour cela énormément sur les [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) qui vont constituer tout les éléments du site, chacun encapsulant à la fois son template HTML, son style Tailwind CSS et sa logique Javascript (les éléments sont dynamique en fonction des requêtes de l'utilisateur mais aussi de la database représentée par un JSON).
 
 Enfin, un soin particulier a été apporté à l'accesibilité du site (particulièrement la navigation au clavier et aux lecteurs d'écran) ainsi qu'à la documentation du code (inspiré par [JSDoc 3](https://jsdoc.app/)).
 
@@ -19,7 +19,7 @@ Adresse du répo : https://github.com/GoulvenC/GoulvenClech_6_15032021
 
 Démo live : https://oc-p6.goulven-clech.dev/
 
-Présentation du projet : https://docs.google.com/presentation/d/18X4CeLMLaiLNN6lhBIScb0UnHPGZ-zymx57MzrwC3pw/
+Diapo soutenance : https://docs.google.com/presentation/d/18X4CeLMLaiLNN6lhBIScb0UnHPGZ-zymx57MzrwC3pw/
 
 ## Installation
 
