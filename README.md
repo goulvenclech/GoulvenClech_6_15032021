@@ -10,11 +10,16 @@ Tout le site est donc une seule page HTML, Javascript gère complétement la nav
 
 Enfin, un soin particulier a été apporté à l'accesibilité du site (particulièrement la navigation au clavier et aux lecteurs d'écran) ainsi qu'à la documentation du code (inspiré par [JSDoc 3](https://jsdoc.app/)).
 
+Reste à faire : 
+-> navigation contact form pas aussi bien que la lightbox 
+-> style CSS / JS de <medias-select> pas terrible 
+-> aurait pu profiter de lazy-loading pour les images
+
 Adresse du répo : https://github.com/GoulvenC/GoulvenClech_6_15032021
 
 Démo live : https://oc-p6.goulven-clech.dev/
 
-Présentation du projet : *[work in progress]*
+Présentation du projet : https://docs.google.com/presentation/d/18X4CeLMLaiLNN6lhBIScb0UnHPGZ-zymx57MzrwC3pw/
 
 ## Installation
 
